@@ -254,27 +254,36 @@
     }
 
     /* ================= MODAL ================= */
-    .modal {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,.95);
-        z-index: 2000;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 20px;
-    }
+   .modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,.95);
+    z-index: 9999;
 
-    .modal.active { display: flex; }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .modal img,
-    .modal video {
-        max-width: 90%;
-        max-height: 90vh;
-        border: 5px solid var(--p);
-        border-radius: 15px;
-        box-shadow: var(--glow);
-    }
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.modal.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+   .modal img,
+.modal video {
+    max-width: 90%;
+    max-height: 90vh;
+    border: 5px solid var(--p);
+    border-radius: 15px;
+    box-shadow: var(--glow);
+}
 
     .close {
         position: absolute;
@@ -340,7 +349,23 @@
         .ht h1 { font-size: 1.7rem; }
         .pf { width: 150px; height: 150px; }
         .card img { height: 140px; }
+    } 
+
+
+        @media (max-width: 600px) {
+    .modal img,
+    .modal video {
+        max-width: 100%;
+        max-height: 70vh;
+        border-width: 3px;
     }
+
+    .close {
+        top: 10px;
+        right: 15px;
+        font-size: 2rem;
+    }
+}
     </style>
 </head>
 <body>
@@ -565,11 +590,14 @@ function openModal(src) {
 function closeModal() {
     const modal = document.getElementById('modal');
     const video = document.getElementById('modal-video');
+    const videoSrc = document.getElementById('modal-video-src');
+
     modal.classList.remove('active');
+
     video.pause();
     video.currentTime = 0;
+    videoSrc.src = "";
 }
-
 // Optional: tutup modal saat klik di luar konten
 document.getElementById('modal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
