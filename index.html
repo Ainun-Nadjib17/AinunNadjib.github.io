@@ -7,7 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@300;500;700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
     <style>
-    /* ================= ROOT ================= */
     :root {
         --p: #00ff88;
         --a: #00aaff;
@@ -15,11 +14,7 @@
         --g: rgba(10,10,10,0.65);
         --glow: 0 0 30px rgba(0,255,136,0.4);
     }
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
         font-family: 'Inter', sans-serif;
         background: #05050f;
@@ -28,10 +23,9 @@
         line-height: 1.6;
     }
 
-    /* ================= BACKGROUND ================= */
+    /* Background */
     .bg {
-        position: fixed;
-        inset: 0;
+        position: fixed; inset: 0;
         background: linear-gradient(135deg, #0f0c29, #302b63, #0f0c29);
         background-size: 400%;
         animation: g 20s ease infinite;
@@ -42,25 +36,18 @@
         50% { background-position: 100% 50%; }
     }
     .orb {
-        position: fixed;
-        border-radius: 50%;
+        position: fixed; border-radius: 50%;
         background: radial-gradient(circle, rgba(0,255,136,0.3), transparent);
-        filter: blur(40px);
-        animation: f 15s infinite;
-        z-index: -1;
+        filter: blur(40px); animation: f 15s infinite; z-index: -1;
     }
     .orb:nth-child(1) { width: 400px; height: 400px; top: 10%; left: 10%; }
     .orb:nth-child(2) { width: 600px; height: 600px; bottom: 10%; right: 10%; }
-    @keyframes f {
-        0%, 100% { transform: translateY(0); }
-        50% { transform: translateY(-30px); }
-    }
+    @keyframes f { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
 
-    /* ================= HEADER ================= */
+    /* Header - Minimalis */
     header {
-        position: fixed;
-        top: 0; left: 0; right: 0;
-        padding: 18px 5%;
+        position: fixed; top: 0; left: 0; right: 0;
+        padding: 14px 5%;
         background: var(--g);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid rgba(0,255,136,.2);
@@ -71,98 +58,60 @@
     }
     .logo {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.75rem;
+        font-size: 1.55rem;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     nav a {
         color: #fff;
-        margin: 0 15px;
+        margin: 0 10px;
         text-decoration: none;
         font-weight: 500;
+        font-size: 0.9rem;
         position: relative;
-        font-size: 0.95rem;
     }
     nav a::after {
-        content: '';
-        position: absolute;
-        width: 0;
-        height: 2px;
-        bottom: -6px;
-        left: 0;
-        background: var(--p);
-        transition: .4s;
+        content: ''; position: absolute; width: 0; height: 2px;
+        bottom: -5px; left: 0; background: var(--p); transition: .3s;
     }
     nav a:hover::after { width: 100%; }
 
-    /* ================= HERO ================= */
-    .hero {
-        min-height: 100vh;
-        display: flex;
-        align-items: center;
-        padding: 110px 5% 80px;
-    }
+    /* Hero */
+    .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 70px; }
     .hc {
-        max-width: 1300px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 60px;
-        align-items: center;
+        max-width: 1300px; margin: auto;
+        display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
     }
     .ht h1 {
         font-family: 'Orbitron', sans-serif;
-        font-size: 4.2rem;
-        line-height: 1.1;
-        margin-bottom: 20px;
+        font-size: 4rem; line-height: 1.1;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    .sub { 
-        font-size: 1.45rem; 
-        color: #ccc; 
-        margin-bottom: 20px; 
-    }
-    .ht p {
-        font-size: 1.05rem;
-        max-width: 500px;
-        color: #aaa;
-    }
+    .sub { font-size: 1.4rem; color: #ccc; margin: 15px 0; }
+    .ht p { font-size: 1.05rem; color: #aaa; max-width: 480px; }
 
-    /* ================= SOCIAL ================= */
     .socials {
-        display: flex;
-        gap: 15px;
-        margin-top: 35px;
+        display: flex; gap: 14px; margin-top: 30px;
     }
     .socials a {
-        width: 52px; height: 52px;
+        width: 48px; height: 48px;
         background: rgba(0,255,136,.15);
         border: 1px solid var(--p);
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--p);
-        font-size: 1.4rem;
+        display: flex; align-items: center; justify-content: center;
+        color: var(--p); font-size: 1.35rem;
         transition: .4s;
     }
     .socials a:hover {
-        background: var(--p);
-        color: #000;
-        transform: translateY(-5px);
-        box-shadow: var(--glow);
+        background: var(--p); color: #000;
+        transform: translateY(-4px); box-shadow: var(--glow);
     }
 
-    /* ================= PROFILE ================= */
-    .hp { 
-        position: relative; 
-        justify-self: center; 
-    }
     .pf {
-        width: 340px; height: 340px;
+        width: 320px; height: 320px;
         border: 4px solid var(--p);
         border-radius: 50%;
         padding: 10px;
@@ -170,183 +119,167 @@
         box-shadow: var(--glow);
     }
     .pf img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        border-radius: 50%;
-        border: 10px solid var(--d);
+        width: 100%; height: 100%; object-fit: cover;
+        border-radius: 50%; border: 10px solid var(--d);
     }
     .badge {
-        position: absolute;
-        bottom: 15px;
-        right: -15px;
-        background: var(--p);
-        color: #000;
-        padding: 10px 25px;
-        border-radius: 50px;
-        font-weight: bold;
-        font-size: 0.95rem;
-        white-space: nowrap;
+        position: absolute; bottom: 12px; right: -12px;
+        background: var(--p); color: #000;
+        padding: 8px 22px; border-radius: 50px;
+        font-weight: bold; font-size: 0.9rem;
     }
 
-    /* ================= SECTION ================= */
-    section { 
-        padding: 110px 5%; 
-    }
+    /* Section */
+    section { padding: 100px 5%; }
     .st {
         text-align: center;
         font-family: 'Orbitron', sans-serif;
-        font-size: 2.8rem;
-        margin-bottom: 70px;
+        font-size: 2.6rem;
+        margin-bottom: 60px;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+
+    /* Grid Project & Certificates - Lebih Kecil */
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-        gap: 30px;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 24px;
         max-width: 1300px;
         margin: auto;
     }
     .card {
         background: var(--g);
-        border-radius: 20px;
+        border-radius: 16px;
         overflow: hidden;
-        border: 1px solid rgba(0,255,136,.3);
-        transition: .5s;
-        backdrop-filter: blur(10px);
+        border: 1px solid rgba(0,255,136,.25);
+        transition: .4s;
         cursor: pointer;
     }
     .card:hover {
-        transform: translateY(-12px);
+        transform: translateY(-10px);
         box-shadow: var(--glow);
     }
-    .card img,
-    .card video {
+    .card img, .card .thumbnail {
         width: 100%;
-        height: 210px;
+        height: 170px;
         object-fit: cover;
     }
-    .cb { 
-        padding: 25px; 
-    }
-    .cb h3 { 
-        color: var(--p); 
-        margin-bottom: 10px;
-    }
+
+    .cb { padding: 18px; }
+    .cb h3 { color: var(--p); font-size: 1.1rem; margin-bottom: 8px; }
+    .cb p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
     .tag {
         background: rgba(0,255,136,.2);
-        padding: 6px 16px;
+        padding: 5px 14px;
         border-radius: 20px;
-        font-size: 0.82rem;
-        display: inline-block;
+        font-size: 0.78rem;
         margin-top: 10px;
+        display: inline-block;
     }
 
-    /* ================= MODAL ================= */
+    /* Modal dengan Thumbnail seperti YouTube */
     .modal {
-        position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0,0,0,.95);
+        position: fixed; inset: 0;
+        background: rgba(0,0,0,0.96);
         z-index: 9999;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+    .modal.active { display: flex; }
+
+    .modal-content {
+        position: relative;
+        max-width: 92%;
+        max-height: 90vh;
+    }
+
+    .modal img, .modal video {
+        width: 100%;
+        border: 5px solid var(--p);
+        border-radius: 16px;
+        box-shadow: var(--glow);
+    }
+
+    /* Thumbnail Style */
+    .thumbnail-container {
+        position: relative;
+        cursor: pointer;
+    }
+    .thumbnail-container img {
+        width: 100%;
+        height: 170px;
+        object-fit: cover;
+        border-radius: 12px 12px 0 0;
+    }
+    .play-button {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 60px; height: 60px;
+        background: rgba(0,0,0,0.7);
+        border-radius: 50%;
         display: flex;
         align-items: center;
         justify-content: center;
-        opacity: 0;
-        pointer-events: none;
-        transition: 0.3s ease;
-    }
-    .modal.active {
-        opacity: 1;
-        pointer-events: auto;
-    }
-    .modal img,
-    .modal video {
-        max-width: 92%;
-        max-height: 88vh;
-        border: 5px solid var(--p);
-        border-radius: 15px;
-        box-shadow: var(--glow);
-    }
-    .close {
-        position: absolute;
-        top: 25px;
-        right: 35px;
-        font-size: 3rem;
         color: var(--p);
-        cursor: pointer;
-        z-index: 10000;
+        font-size: 28px;
+        border: 3px solid var(--p);
+        transition: .3s;
+    }
+    .thumbnail-container:hover .play-button {
+        background: var(--p);
+        color: #000;
+        transform: translate(-50%, -50%) scale(1.1);
     }
 
-    /* ================= FOOTER ================= */
+    .close {
+        position: absolute;
+        top: -15px; right: -15px;
+        font-size: 2.8rem;
+        color: var(--p);
+        cursor: pointer;
+        background: #000;
+        width: 45px; height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid var(--p);
+    }
+
+    /* Footer */
     footer {
         text-align: center;
-        padding: 60px 20px;
+        padding: 50px 20px;
         background: var(--g);
-        backdrop-filter: blur(15px);
         border-top: 1px solid rgba(0,255,136,.2);
     }
 
-    /* ================= RESPONSIVE - DIPERBAIKI ================= */
+    /* Responsive */
     @media (max-width: 900px) {
-        .hc {
-            grid-template-columns: 1fr;
-            text-align: center;
-            gap: 50px;
-        }
-        .ht h1 { font-size: 3.2rem; }
-        .ht p { max-width: 100%; margin: 20px auto; }
-        nav {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        nav a { margin: 4px 8px; font-size: 0.9rem; }
+        .hc { grid-template-columns: 1fr; text-align: center; gap: 40px; }
+        .ht h1 { font-size: 3rem; }
     }
 
     @media (max-width: 600px) {
-        header {
-            padding: 15px 5%;
-            flex-direction: column;
-            gap: 12px;
-        }
-        .logo { font-size: 1.55rem; }
-        .hero { padding: 100px 5% 70px; }
-        .ht h1 { font-size: 2.6rem; }
-        .sub { font-size: 1.25rem; }
-        .pf { width: 260px; height: 260px; }
-        .badge { font-size: 0.85rem; padding: 8px 20px; right: -10px; }
-        section { padding: 90px 5%; }
-        .st { font-size: 2.2rem; margin-bottom: 50px; }
-        .grid { grid-template-columns: 1fr; gap: 25px; }
-        .card img, .card video { height: 190px; }
-        .socials { justify-content: center; gap: 12px; }
-        .socials a { width: 46px; height: 46px; font-size: 1.25rem; }
-        .modal img, .modal video {
-            max-width: 96%;
-            max-height: 78vh;
-            border-width: 4px;
-        }
-        .close {
-            top: 18px;
-            right: 20px;
-            font-size: 2.5rem;
-        }
+        header { padding: 12px 5%; flex-direction: column; gap: 10px; }
+        .logo { font-size: 1.45rem; }
+        .hero { padding: 95px 5% 60px; }
+        .ht h1 { font-size: 2.45rem; }
+        .pf { width: 250px; height: 250px; }
+        section { padding: 85px 5%; }
+        .st { font-size: 2.1rem; }
+        .grid { grid-template-columns: 1fr; gap: 20px; }
+        .card img, .thumbnail-container img { height: 160px; }
+        .socials a { width: 44px; height: 44px; font-size: 1.2rem; }
     }
 
     @media (max-width: 480px) {
-        .ht h1 { font-size: 2.35rem; }
-        .pf { width: 230px; height: 230px; }
-        .card img, .card video { height: 175px; }
-        .socials a { width: 42px; height: 42px; }
-    }
-
-    @media (max-width: 360px) {
-        .ht h1 { font-size: 2.1rem; }
-        .pf { width: 200px; height: 200px; }
-        .st { font-size: 2rem; }
+        .ht h1 { font-size: 2.2rem; }
+        .pf { width: 220px; height: 220px; }
     }
     </style>
 </head>
@@ -360,9 +293,9 @@
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
+        <a href="#projects">Project</a>
         <a href="#certificates">Penghargaan</a>
         <a href="#contact">Kontak</a>
-        <a href="#projects">Project</a>
     </nav>
 </header>
 
@@ -371,16 +304,14 @@
         <div class="ht">
             <h1>Halo, Saya<br><span id="typed"></span></h1>
             <div class="sub">Junior Web Dev</div>
-            <p>
-                Junior Web Developer yang antusias membangun website dan aplikasi web. Berpengalaman menggunakan python, laravel maupun flutter dan terbiasa mengerjakan project nyata seperti website dan Aps sederhana.
-            </p>
+            <p>Junior Web Developer yang antusias membangun website dan aplikasi web. Berpengalaman menggunakan Python, Laravel, maupun Flutter.</p>
             <div class="socials">
-                <a href="https://www.linkedin.com/in/mokhamad-ainun-nadjib-795a71339?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://www.linkedin.com/in/mokhamad-ainun-nadjib-795a71339" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://ainun-nadjib17.github.io/" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="mailto:mokhamad.ainun32@smk.belajar.id"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div class="hp">
+        <div class="hp" style="position:relative;">
             <div class="pf">
                 <img src="images/saya.jpg" alt="M. Ainun Nadjib">
             </div>
@@ -392,11 +323,9 @@
 <section id="about">
     <h2 class="st">Tentang Saya</h2>
     <p style="max-width:800px; margin:auto; text-align:center; font-size:1.05rem; color:#ccc; line-height:1.8;">
-        👋 Saya <b>Ainun Nadjib</b>, fresh graduate dari SMKN 1 Pasuruan <b>Jurusan Rekayasa Perangkat Lunak (RPL)</b> yang memiliki minat besar di bidang
-        <b>Web Development</b> 💻 dan <b>Cyber Security</b> 🔒, maupun Machine Learning<br><br>
-        Saya berpengalaman dalam membangun aplikasi berbasis web menggunakan <b>Python</b> <b>Laravel</b> <b>Flutter</b> serta mengembangkan berbagai
-        <b>tools keamanan</b> menggunakan <b>Python</b> 🐍.<br><br>
-        Selain dunia teknologi, saya juga merupakan <b>Juara Sambo Jatim 🥋</b> dan <b>Penulis Terbaik Indonesia ✍️</b>.<br><br>
+        👋 Saya <b>Ainun Nadjib</b>, fresh graduate dari SMKN 1 Pasuruan Jurusan RPL.<br><br>
+        Memiliki minat besar di <b>Web Development</b>, <b>Cyber Security</b>, dan <b>Machine Learning</b>.<br><br>
+        Selain itu, saya juga Juara Sambo Jatim 🥋 dan Penulis Terbaik Nasional ✍️.
     </p>
 </section>
 
@@ -406,57 +335,70 @@
         <div class="card" onclick="openModal('images/detek.jpeg')">
             <img src="images/detek.jpeg" alt="">
             <div class="cb">
-                <h3>Object Detection & Measurement System</h3>
-                <p>Sistem deteksi objek berbasis computer vision menggunakan OpenCV dan YOLOv8n untuk mengidentifikasi objek beserta estimasi ukuran diameternya secara real-time.</p>
+                <h3>Object Detection & Measurement</h3>
+                <p>Sistem deteksi objek menggunakan OpenCV dan YOLOv8n</p>
                 <span class="tag">Python</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/Absen.jpg')">
             <img src="images/Absen.jpg" alt="">
             <div class="cb">
-                <h3>Barcode-Based Employee Attendance System</h3>
-                <p>Aplikasi absensi digital berbasis Django yang memanfaatkan barcode untuk proses pencatatan kehadiran secara cepat dan efisien.</p>
-                <span class="tag">Absensi Digital</span>
+                <h3>Barcode Absensi Karyawan</h3>
+                <p>Aplikasi absensi digital berbasis Django</p>
+                <span class="tag">Django</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/aps.JPG')">
             <img src="images/aps.JPG" alt="">
             <div class="cb">
-                <h3>Mobile Library App (Flutter + API)</h3>
-                <p>Aplikasi mobile untuk sistem peminjaman buku menggunakan Flutter yang terintegrasi dengan backend API berbasis Flask.</p>
+                <h3>Mobile Library App</h3>
+                <p>Aplikasi peminjaman buku dengan Flutter + Flask</p>
                 <span class="tag">Flutter</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/pengamanan_barang.mp4')">
-            <img src="images/pengamanan_barang.mp4" alt="">
+            <div class="thumbnail-container">
+                <img src="images/pengamanan_barang.mp4" alt="Smart Theft Detection">
+                <div class="play-button">▶</div>
+            </div>
             <div class="cb">
-                <h3>Smart Theft Detection System</h3>
-                <p>Sistem pendeteksi potensi pencurian barang berbasis computer vision menggunakan Python untuk monitoring dan keamanan.</p>
+                <h3>Smart Theft Detection</h3>
+                <p>Sistem pendeteksi pencurian berbasis Computer Vision</p>
                 <span class="tag">Python</span>
             </div>
         </div>
+        <!-- Tambahkan thumbnail serupa untuk video lainnya -->
         <div class="card" onclick="openModal('images/detek.mp4')">
-            <img src="images/detek.mp4" alt="">
+            <div class="thumbnail-container">
+                <img src="images/detek.mp4" alt="">
+                <div class="play-button">▶</div>
+            </div>
             <div class="cb">
                 <h3>Targeted Object Detection</h3>
-                <p>Sistem deteksi objek spesifik berbasis Python yang mampu mengenali objek tertentu sesuai target yang telah ditentukan.</p>
+                <p>Deteksi objek spesifik sesuai target</p>
                 <span class="tag">Python</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/deteksi_tumor_otak.mp4')">
-            <img src="images/deteksi_tumor_otak.mp4" alt="">
+            <div class="thumbnail-container">
+                <img src="images/deteksi_tumor_otak.mp4" alt="">
+                <div class="play-button">▶</div>
+            </div>
             <div class="cb">
-                <h3>Brain Tumor Detection (MobileNetV2)</h3>
-                <p>Sistem klasifikasi citra MRI untuk deteksi tumor otak menggunakan MobileNetV2 yang diimplementasikan dengan TensorFlow untuk prediksi yang cepat dan efisien.</p>
-                <span class="tag">Python</span>
+                <h3>Brain Tumor Detection</h3>
+                <p>Klasifikasi MRI menggunakan MobileNetV2</p>
+                <span class="tag">TensorFlow</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/deteksi_roast_beans.mp4')">
-            <img src="images/deteksi_roast_beans.mp4" alt="">
+            <div class="thumbnail-container">
+                <img src="images/deteksi_roast_beans.mp4" alt="">
+                <div class="play-button">▶</div>
+            </div>
             <div class="cb">
-                <h3>Coffee Roast Level Classification</h3>
-                <p>Model computer vision berbasis MobileNetV2 untuk mengklasifikasikan tingkat roasting biji kopi menggunakan TensorFlow.</p>
-                <span class="tag">Python</span>
+                <h3>Coffee Roast Classification</h3>
+                <p>Klasifikasi tingkat roasting biji kopi</p>
+                <span class="tag">TensorFlow</span>
             </div>
         </div>
     </div>
@@ -465,11 +407,11 @@
 <section id="certificates">
     <h2 class="st">Sertifikat & Penghargaan</h2>
     <div class="grid">
+        <!-- Card sertifikat tetap menggunakan gambar biasa (bukan video) -->
         <div class="card" onclick="openModal('images/IDOR.jpg')">
             <img src="images/IDOR.jpg" alt="">
             <div class="cb">
                 <h3>Bug Bounty: IDOR</h3>
-                <p>Berhasil menemukan Insecure Direct Object Reference</p>
                 <span class="tag">Cyber Security</span>
             </div>
         </div>
@@ -481,42 +423,17 @@
                 <span class="tag">Olahraga</span>
             </div>
         </div>
-        <div class="card" onclick="openModal('images/career2.jpg')">
-            <img src="images/career2.jpg" alt="">
-            <div class="cb">
-                <h3>IBM: Career Management Essentials</h3>
-                <p>Sertifikat resmi IBM SkillsBuild</p>
-                <span class="tag">Soft Skill</span>
-            </div>
-        </div>
-        <div class="card" onclick="openModal('images/career.jpg')">
-            <img src="images/career.jpg" alt="">
-            <div class="cb">
-                <h3>IBM: Digital Mindset</h3>
-                <p>Membangun pola pikir digital era modern</p>
-                <span class="tag">Digital Skill</span>
-            </div>
-        </div>
-        <div class="card" onclick="openModal('images/penulis.JPG')">
-            <img src="images/penulis.JPG" alt="">
-            <div class="cb">
-                <h3>Penghargaan penulis nasional & terbaik</h3>
-                <span class="tag">Penulis Nasional & Terbaik</span>
-            </div>
-        </div>
-        <div class="card" onclick="openModal('images/penulis2.JPG')">
-            <img src="images/penulis2.JPG" alt="">
-            <div class="cb">
-                <h3>Penghargaan penulis nasional & terbaik</h3>
-                <span class="tag">Penulis Nasional & Terbaik</span>
-            </div>
-        </div>
+        <!-- Sisanya sertifikat lainnya... -->
+        <div class="card" onclick="openModal('images/career2.jpg')"><img src="images/career2.jpg" alt=""><div class="cb"><h3>IBM: Career Management Essentials</h3><span class="tag">Soft Skill</span></div></div>
+        <div class="card" onclick="openModal('images/career.jpg')"><img src="images/career.jpg" alt=""><div class="cb"><h3>IBM: Digital Mindset</h3><span class="tag">Digital Skill</span></div></div>
+        <div class="card" onclick="openModal('images/penulis.JPG')"><img src="images/penulis.JPG" alt=""><div class="cb"><h3>Penulis Nasional Terbaik</h3><span class="tag">Penulis</span></div></div>
+        <div class="card" onclick="openModal('images/penulis2.JPG')"><img src="images/penulis2.JPG" alt=""><div class="cb"><h3>Penulis Nasional Terbaik</h3><span class="tag">Penulis</span></div></div>
     </div>
 </section>
 
 <section id="contact">
     <h2 class="st">Hubungi Saya</h2>
-    <p class="st" style="font-size:1.4rem; margin-top:-30px;">WA: 089656193030</p>
+    <p class="st" style="font-size:1.5rem; margin-top:-20px;">WA: 089656193030</p>
 </section>
 
 <footer>
@@ -525,11 +442,13 @@
 
 <!-- MODAL -->
 <div class="modal" id="modal">
-    <span class="close" onclick="closeModal()">×</span>
-    <img id="modal-img" style="display:none;">
-    <video id="modal-video" controls style="display:none;">
-        <source id="modal-video-src" type="video/mp4">
-    </video>
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">×</span>
+        <img id="modal-img" style="display:none;">
+        <video id="modal-video" controls style="display:none;">
+            <source id="modal-video-src" type="video/mp4">
+        </video>
+    </div>
 </div>
 
 <script>
@@ -538,7 +457,7 @@ function openModal(src) {
     const img = document.getElementById('modal-img');
     const video = document.getElementById('modal-video');
     const videoSrc = document.getElementById('modal-video-src');
-    
+
     modal.classList.add('active');
     img.style.display = 'none';
     video.style.display = 'none';
@@ -548,7 +467,6 @@ function openModal(src) {
         video.style.display = 'block';
         videoSrc.src = src;
         video.load();
-        video.play().catch(() => {});
     } else {
         img.style.display = 'block';
         img.src = src;
@@ -558,15 +476,11 @@ function openModal(src) {
 function closeModal() {
     const modal = document.getElementById('modal');
     const video = document.getElementById('modal-video');
-    const videoSrc = document.getElementById('modal-video-src');
-    
     modal.classList.remove('active');
     video.pause();
     video.currentTime = 0;
-    videoSrc.src = "";
 }
 
-// Tutup modal jika klik di luar konten
 document.getElementById('modal').addEventListener('click', function(e) {
     if (e.target === this) closeModal();
 });
