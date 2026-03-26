@@ -12,7 +12,7 @@
         --a: #00aaff;
         --d: #0a0a0a;
         --g: rgba(10,10,10,0.65);
-        --glow: 0 0 30px rgba(0,255,136,0.4);
+        --glow: 0 0 25px rgba(0,255,136,0.4);
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
@@ -20,34 +20,34 @@
         background: #05050f;
         color: #fff;
         overflow-x: hidden;
-        line-height: 1.6;
+        line-height: 1.5;
     }
 
     /* Background */
-    .bg {
+    .bg { 
         position: fixed; inset: 0;
         background: linear-gradient(135deg, #0f0c29, #302b63, #0f0c29);
-        background-size: 400%;
-        animation: g 20s ease infinite;
-        z-index: -2;
+        background-size: 400%; 
+        animation: g 25s ease infinite; 
+        z-index: -2; 
     }
-    @keyframes g {
-        0%, 100% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
+    @keyframes g { 
+        0%,100% { background-position: 0% 50%; } 
+        50% { background-position: 100% 50%; } 
     }
-    .orb {
+    .orb { 
         position: fixed; border-radius: 50%;
-        background: radial-gradient(circle, rgba(0,255,136,0.3), transparent);
-        filter: blur(40px); animation: f 15s infinite; z-index: -1;
+        background: radial-gradient(circle, rgba(0,255,136,0.25), transparent);
+        filter: blur(40px); animation: f 18s infinite; z-index: -1; 
     }
-    .orb:nth-child(1) { width: 400px; height: 400px; top: 10%; left: 10%; }
-    .orb:nth-child(2) { width: 600px; height: 600px; bottom: 10%; right: 10%; }
-    @keyframes f { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-30px); } }
+    .orb:nth-child(1) { width: 380px; height: 380px; top: 15%; left: 10%; }
+    .orb:nth-child(2) { width: 550px; height: 550px; bottom: 15%; right: 10%; }
+    @keyframes f { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
 
-    /* Header - Minimalis */
+    /* Header Minimalis */
     header {
         position: fixed; top: 0; left: 0; right: 0;
-        padding: 14px 5%;
+        padding: 12px 5%;
         background: var(--g);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid rgba(0,255,136,.2);
@@ -58,131 +58,200 @@
     }
     .logo {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.55rem;
+        font-size: 1.45rem;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     nav a {
-        color: #fff;
-        margin: 0 10px;
+        color: #ddd;
+        margin: 0 9px;
         text-decoration: none;
+        font-size: 0.88rem;
         font-weight: 500;
-        font-size: 0.9rem;
         position: relative;
     }
     nav a::after {
-        content: ''; position: absolute; width: 0; height: 2px;
-        bottom: -5px; left: 0; background: var(--p); transition: .3s;
+        content: ''; position: absolute; width: 0; height: 1.5px;
+        bottom: -4px; left: 0; background: var(--p); transition: .3s;
     }
     nav a:hover::after { width: 100%; }
 
     /* Hero */
-    .hero { min-height: 100vh; display: flex; align-items: center; padding: 100px 5% 70px; }
+    .hero { 
+        min-height: 100vh; 
+        display: flex; 
+        align-items: center; 
+        padding: 95px 5% 60px; 
+    }
     .hc {
-        max-width: 1300px; margin: auto;
-        display: grid; grid-template-columns: 1fr 1fr; gap: 50px; align-items: center;
+        max-width: 1200px; margin: auto;
+        display: grid; 
+        grid-template-columns: 1fr 1fr; 
+        gap: 40px; 
+        align-items: center;
     }
     .ht h1 {
         font-family: 'Orbitron', sans-serif;
-        font-size: 4rem; line-height: 1.1;
+        font-size: 3.8rem; line-height: 1.1;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    .sub { font-size: 1.4rem; color: #ccc; margin: 15px 0; }
-    .ht p { font-size: 1.05rem; color: #aaa; max-width: 480px; }
+    .sub { font-size: 1.35rem; color: #ccc; margin: 12px 0 20px; }
+    .ht p { font-size: 1.02rem; color: #aaa; max-width: 460px; }
 
-    .socials {
-        display: flex; gap: 14px; margin-top: 30px;
-    }
+    .socials { display: flex; gap: 12px; margin-top: 25px; }
     .socials a {
-        width: 48px; height: 48px;
-        background: rgba(0,255,136,.15);
+        width: 46px; height: 46px;
+        background: rgba(0,255,136,.12);
         border: 1px solid var(--p);
         border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
-        color: var(--p); font-size: 1.35rem;
-        transition: .4s;
+        color: var(--p); font-size: 1.3rem;
+        transition: .3s;
     }
-    .socials a:hover {
-        background: var(--p); color: #000;
-        transform: translateY(-4px); box-shadow: var(--glow);
+    .socials a:hover { 
+        background: var(--p); color: #000; 
+        transform: translateY(-4px); 
     }
 
     .pf {
-        width: 320px; height: 320px;
+        width: 300px; height: 300px;
         border: 4px solid var(--p);
         border-radius: 50%;
-        padding: 10px;
+        padding: 8px;
         background: linear-gradient(45deg, var(--p), var(--a));
         box-shadow: var(--glow);
     }
-    .pf img {
-        width: 100%; height: 100%; object-fit: cover;
-        border-radius: 50%; border: 10px solid var(--d);
+    .pf img { 
+        width: 100%; height: 100%; object-fit: cover; 
+        border-radius: 50%; border: 8px solid var(--d); 
     }
+
     .badge {
-        position: absolute; bottom: 12px; right: -12px;
+        position: absolute; bottom: 10px; right: -10px;
         background: var(--p); color: #000;
-        padding: 8px 22px; border-radius: 50px;
-        font-weight: bold; font-size: 0.9rem;
+        padding: 7px 20px; border-radius: 50px;
+        font-weight: bold; font-size: 0.85rem;
     }
 
     /* Section */
-    section { padding: 100px 5%; }
+    section { padding: 90px 5%; }
     .st {
         text-align: center;
         font-family: 'Orbitron', sans-serif;
-        font-size: 2.6rem;
-        margin-bottom: 60px;
+        font-size: 2.4rem;
+        margin-bottom: 50px;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
-    /* Grid Project & Certificates - Lebih Kecil */
+    /* Grid - Minimalis + Horizontal Scroll di Mobile */
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 24px;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 20px;
         max-width: 1300px;
         margin: auto;
     }
+
+    @media (max-width: 768px) {
+        .grid {
+            display: flex;
+            overflow-x: auto;
+            gap: 18px;
+            padding-bottom: 15px;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .grid::-webkit-scrollbar {
+            height: 6px;
+        }
+        .grid::-webkit-scrollbar-thumb {
+            background: var(--p);
+            border-radius: 10px;
+        }
+        .card {
+            min-width: 260px;
+            scroll-snap-align: start;
+        }
+    }
+
     .card {
         background: var(--g);
-        border-radius: 16px;
+        border-radius: 14px;
         overflow: hidden;
-        border: 1px solid rgba(0,255,136,.25);
+        border: 1px solid rgba(0,255,136,.2);
         transition: .4s;
+        flex-shrink: 0;
         cursor: pointer;
     }
     .card:hover {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
         box-shadow: var(--glow);
     }
-    .card img, .card .thumbnail {
+
+    .card img, .thumbnail-container img {
         width: 100%;
-        height: 170px;
+        height: 155px;
         object-fit: cover;
     }
 
-    .cb { padding: 18px; }
-    .cb h3 { color: var(--p); font-size: 1.1rem; margin-bottom: 8px; }
-    .cb p { font-size: 0.92rem; color: #bbb; line-height: 1.5; }
+    .cb { padding: 16px; }
+    .cb h3 {
+        color: var(--p);
+        font-size: 1.05rem;
+        margin-bottom: 6px;
+    }
+    .cb p {
+        font-size: 0.88rem;
+        color: #bbb;
+        line-height: 1.4;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
     .tag {
-        background: rgba(0,255,136,.2);
-        padding: 5px 14px;
+        background: rgba(0,255,136,.18);
+        padding: 4px 12px;
         border-radius: 20px;
-        font-size: 0.78rem;
+        font-size: 0.75rem;
         margin-top: 10px;
         display: inline-block;
     }
 
-    /* Modal dengan Thumbnail seperti YouTube */
+    /* Thumbnail Video Style */
+    .thumbnail-container {
+        position: relative;
+        cursor: pointer;
+    }
+    .play-button {
+        position: absolute;
+        top: 50%; left: 50%;
+        transform: translate(-50%, -50%);
+        width: 50px; height: 50px;
+        background: rgba(0,0,0,0.75);
+        border: 3px solid var(--p);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--p);
+        font-size: 24px;
+    }
+    .thumbnail-container:hover .play-button {
+        background: var(--p);
+        color: #000;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+
+    /* Modal */
     .modal {
         position: fixed; inset: 0;
-        background: rgba(0,0,0,0.96);
+        background: rgba(0,0,0,0.97);
         z-index: 9999;
         display: none;
         align-items: center;
@@ -192,57 +261,23 @@
 
     .modal-content {
         position: relative;
-        max-width: 92%;
-        max-height: 90vh;
+        max-width: 90%;
+        max-height: 88vh;
     }
-
     .modal img, .modal video {
         width: 100%;
-        border: 5px solid var(--p);
-        border-radius: 16px;
+        border: 4px solid var(--p);
+        border-radius: 14px;
         box-shadow: var(--glow);
     }
-
-    /* Thumbnail Style */
-    .thumbnail-container {
-        position: relative;
-        cursor: pointer;
-    }
-    .thumbnail-container img {
-        width: 100%;
-        height: 170px;
-        object-fit: cover;
-        border-radius: 12px 12px 0 0;
-    }
-    .play-button {
-        position: absolute;
-        top: 50%; left: 50%;
-        transform: translate(-50%, -50%);
-        width: 60px; height: 60px;
-        background: rgba(0,0,0,0.7);
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: var(--p);
-        font-size: 28px;
-        border: 3px solid var(--p);
-        transition: .3s;
-    }
-    .thumbnail-container:hover .play-button {
-        background: var(--p);
-        color: #000;
-        transform: translate(-50%, -50%) scale(1.1);
-    }
-
     .close {
         position: absolute;
-        top: -15px; right: -15px;
-        font-size: 2.8rem;
+        top: -18px; right: -18px;
+        font-size: 2.6rem;
         color: var(--p);
         cursor: pointer;
         background: #000;
-        width: 45px; height: 45px;
+        width: 42px; height: 42px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -250,36 +285,20 @@
         border: 2px solid var(--p);
     }
 
-    /* Footer */
     footer {
         text-align: center;
-        padding: 50px 20px;
+        padding: 45px 20px;
         background: var(--g);
         border-top: 1px solid rgba(0,255,136,.2);
     }
 
     /* Responsive */
-    @media (max-width: 900px) {
-        .hc { grid-template-columns: 1fr; text-align: center; gap: 40px; }
-        .ht h1 { font-size: 3rem; }
-    }
-
     @media (max-width: 600px) {
-        header { padding: 12px 5%; flex-direction: column; gap: 10px; }
-        .logo { font-size: 1.45rem; }
-        .hero { padding: 95px 5% 60px; }
-        .ht h1 { font-size: 2.45rem; }
-        .pf { width: 250px; height: 250px; }
-        section { padding: 85px 5%; }
-        .st { font-size: 2.1rem; }
-        .grid { grid-template-columns: 1fr; gap: 20px; }
-        .card img, .thumbnail-container img { height: 160px; }
-        .socials a { width: 44px; height: 44px; font-size: 1.2rem; }
-    }
-
-    @media (max-width: 480px) {
-        .ht h1 { font-size: 2.2rem; }
-        .pf { width: 220px; height: 220px; }
+        .hero { padding: 90px 5% 50px; }
+        .ht h1 { font-size: 2.35rem; }
+        .pf { width: 240px; height: 240px; }
+        .st { font-size: 2rem; margin-bottom: 40px; }
+        section { padding: 80px 5%; }
     }
     </style>
 </head>
@@ -304,14 +323,14 @@
         <div class="ht">
             <h1>Halo, Saya<br><span id="typed"></span></h1>
             <div class="sub">Junior Web Dev</div>
-            <p>Junior Web Developer yang antusias membangun website dan aplikasi web. Berpengalaman menggunakan Python, Laravel, maupun Flutter.</p>
+            <p>Junior Web Developer yang antusias membangun website dan aplikasi web menggunakan Python, Laravel, dan Flutter.</p>
             <div class="socials">
                 <a href="https://www.linkedin.com/in/mokhamad-ainun-nadjib-795a71339" target="_blank"><i class="fab fa-linkedin"></i></a>
                 <a href="https://ainun-nadjib17.github.io/" target="_blank"><i class="fab fa-github"></i></a>
                 <a href="mailto:mokhamad.ainun32@smk.belajar.id"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
-        <div class="hp" style="position:relative;">
+        <div class="hp" style="position:relative; text-align:center;">
             <div class="pf">
                 <img src="images/saya.jpg" alt="M. Ainun Nadjib">
             </div>
@@ -322,10 +341,9 @@
 
 <section id="about">
     <h2 class="st">Tentang Saya</h2>
-    <p style="max-width:800px; margin:auto; text-align:center; font-size:1.05rem; color:#ccc; line-height:1.8;">
-        👋 Saya <b>Ainun Nadjib</b>, fresh graduate dari SMKN 1 Pasuruan Jurusan RPL.<br><br>
-        Memiliki minat besar di <b>Web Development</b>, <b>Cyber Security</b>, dan <b>Machine Learning</b>.<br><br>
-        Selain itu, saya juga Juara Sambo Jatim 🥋 dan Penulis Terbaik Nasional ✍️.
+    <p style="max-width:780px; margin:auto; text-align:center; font-size:1.05rem; color:#ccc;">
+        Fresh graduate SMKN 1 Pasuruan Jurusan RPL dengan minat kuat di Web Development, Cyber Security, dan Machine Learning.<br><br>
+        Selain coding, saya juga Juara Sambo Jatim dan Penulis Terbaik Nasional.
     </p>
 </section>
 
@@ -335,16 +353,16 @@
         <div class="card" onclick="openModal('images/detek.jpeg')">
             <img src="images/detek.jpeg" alt="">
             <div class="cb">
-                <h3>Object Detection & Measurement</h3>
-                <p>Sistem deteksi objek menggunakan OpenCV dan YOLOv8n</p>
+                <h3>Object Detection System</h3>
+                <p>Deteksi objek real-time dengan YOLOv8n + OpenCV</p>
                 <span class="tag">Python</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/Absen.jpg')">
             <img src="images/Absen.jpg" alt="">
             <div class="cb">
-                <h3>Barcode Absensi Karyawan</h3>
-                <p>Aplikasi absensi digital berbasis Django</p>
+                <h3>Absensi Barcode</h3>
+                <p>Sistem absensi karyawan berbasis Django</p>
                 <span class="tag">Django</span>
             </div>
         </div>
@@ -352,22 +370,21 @@
             <img src="images/aps.JPG" alt="">
             <div class="cb">
                 <h3>Mobile Library App</h3>
-                <p>Aplikasi peminjaman buku dengan Flutter + Flask</p>
+                <p>Aplikasi peminjaman buku Flutter + Flask API</p>
                 <span class="tag">Flutter</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/pengamanan_barang.mp4')">
             <div class="thumbnail-container">
-                <img src="images/pengamanan_barang.mp4" alt="Smart Theft Detection">
+                <img src="images/pengamanan_barang.mp4" alt="">
                 <div class="play-button">▶</div>
             </div>
             <div class="cb">
                 <h3>Smart Theft Detection</h3>
-                <p>Sistem pendeteksi pencurian berbasis Computer Vision</p>
+                <p>Sistem deteksi pencurian berbasis Computer Vision</p>
                 <span class="tag">Python</span>
             </div>
         </div>
-        <!-- Tambahkan thumbnail serupa untuk video lainnya -->
         <div class="card" onclick="openModal('images/detek.mp4')">
             <div class="thumbnail-container">
                 <img src="images/detek.mp4" alt="">
@@ -407,33 +424,55 @@
 <section id="certificates">
     <h2 class="st">Sertifikat & Penghargaan</h2>
     <div class="grid">
-        <!-- Card sertifikat tetap menggunakan gambar biasa (bukan video) -->
         <div class="card" onclick="openModal('images/IDOR.jpg')">
             <img src="images/IDOR.jpg" alt="">
             <div class="cb">
-                <h3>Bug Bounty: IDOR</h3>
+                <h3>Bug Bounty - IDOR</h3>
                 <span class="tag">Cyber Security</span>
             </div>
         </div>
         <div class="card" onclick="openModal('images/sambo.jpg')">
             <img src="images/sambo.jpg" alt="">
             <div class="cb">
-                <h3>Juara Kejurprov Sambo Jatim</h3>
+                <h3>Juara Sambo Jatim</h3>
                 <p>Medali Emas 2024</p>
                 <span class="tag">Olahraga</span>
             </div>
         </div>
-        <!-- Sisanya sertifikat lainnya... -->
-        <div class="card" onclick="openModal('images/career2.jpg')"><img src="images/career2.jpg" alt=""><div class="cb"><h3>IBM: Career Management Essentials</h3><span class="tag">Soft Skill</span></div></div>
-        <div class="card" onclick="openModal('images/career.jpg')"><img src="images/career.jpg" alt=""><div class="cb"><h3>IBM: Digital Mindset</h3><span class="tag">Digital Skill</span></div></div>
-        <div class="card" onclick="openModal('images/penulis.JPG')"><img src="images/penulis.JPG" alt=""><div class="cb"><h3>Penulis Nasional Terbaik</h3><span class="tag">Penulis</span></div></div>
-        <div class="card" onclick="openModal('images/penulis2.JPG')"><img src="images/penulis2.JPG" alt=""><div class="cb"><h3>Penulis Nasional Terbaik</h3><span class="tag">Penulis</span></div></div>
+        <div class="card" onclick="openModal('images/career2.jpg')">
+            <img src="images/career2.jpg" alt="">
+            <div class="cb">
+                <h3>IBM Career Management</h3>
+                <span class="tag">Soft Skill</span>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('images/career.jpg')">
+            <img src="images/career.jpg" alt="">
+            <div class="cb">
+                <h3>IBM Digital Mindset</h3>
+                <span class="tag">Digital Skill</span>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('images/penulis.JPG')">
+            <img src="images/penulis.JPG" alt="">
+            <div class="cb">
+                <h3>Penulis Terbaik Nasional</h3>
+                <span class="tag">Penulis</span>
+            </div>
+        </div>
+        <div class="card" onclick="openModal('images/penulis2.JPG')">
+            <img src="images/penulis2.JPG" alt="">
+            <div class="cb">
+                <h3>Penulis Terbaik Nasional</h3>
+                <span class="tag">Penulis</span>
+            </div>
+        </div>
     </div>
 </section>
 
 <section id="contact">
     <h2 class="st">Hubungi Saya</h2>
-    <p class="st" style="font-size:1.5rem; margin-top:-20px;">WA: 089656193030</p>
+    <p style="text-align:center; font-size:1.45rem; color:var(--p);">WA: 089656193030</p>
 </section>
 
 <footer>
