@@ -44,10 +44,10 @@
     .orb:nth-child(2) { width: 550px; height: 550px; bottom: 15%; right: 10%; }
     @keyframes f { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-25px); } }
 
-    /* Header Minimalis */
+    /* Header - Sama di semua perangkat */
     header {
         position: fixed; top: 0; left: 0; right: 0;
-        padding: 12px 5%;
+        padding: 14px 5%;
         background: var(--g);
         backdrop-filter: blur(15px);
         border-bottom: 1px solid rgba(0,255,136,.2);
@@ -58,113 +58,113 @@
     }
     .logo {
         font-family: 'Orbitron', sans-serif;
-        font-size: 1.45rem;
+        font-size: 1.5rem;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
     nav a {
         color: #ddd;
-        margin: 0 9px;
+        margin: 0 10px;
         text-decoration: none;
-        font-size: 0.88rem;
+        font-size: 0.9rem;
         font-weight: 500;
         position: relative;
     }
     nav a::after {
-        content: ''; position: absolute; width: 0; height: 1.5px;
-        bottom: -4px; left: 0; background: var(--p); transition: .3s;
+        content: ''; position: absolute; width: 0; height: 2px;
+        bottom: -5px; left: 0; background: var(--p); transition: .3s;
     }
     nav a:hover::after { width: 100%; }
 
-    /* Hero */
+    /* Hero - Konsisten */
     .hero { 
         min-height: 100vh; 
         display: flex; 
         align-items: center; 
-        padding: 95px 5% 60px; 
+        padding: 100px 5% 70px; 
     }
     .hc {
         max-width: 1200px; margin: auto;
         display: grid; 
         grid-template-columns: 1fr 1fr; 
-        gap: 40px; 
+        gap: 50px; 
         align-items: center;
     }
     .ht h1 {
         font-family: 'Orbitron', sans-serif;
-        font-size: 3.8rem; line-height: 1.1;
+        font-size: 3.9rem; line-height: 1.1;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
-    .sub { font-size: 1.35rem; color: #ccc; margin: 12px 0 20px; }
-    .ht p { font-size: 1.02rem; color: #aaa; max-width: 460px; }
+    .sub { font-size: 1.4rem; color: #ccc; margin: 15px 0 20px; }
+    .ht p { font-size: 1.05rem; color: #aaa; max-width: 480px; }
 
-    .socials { display: flex; gap: 12px; margin-top: 25px; }
+    .socials { display: flex; gap: 14px; margin-top: 30px; }
     .socials a {
-        width: 46px; height: 46px;
-        background: rgba(0,255,136,.12);
+        width: 48px; height: 48px;
+        background: rgba(0,255,136,.15);
         border: 1px solid var(--p);
         border-radius: 50%;
         display: flex; align-items: center; justify-content: center;
-        color: var(--p); font-size: 1.3rem;
-        transition: .3s;
+        color: var(--p); font-size: 1.35rem;
+        transition: .4s;
     }
     .socials a:hover { 
         background: var(--p); color: #000; 
-        transform: translateY(-4px); 
+        transform: translateY(-5px); box-shadow: var(--glow);
     }
 
     .pf {
-        width: 300px; height: 300px;
+        width: 320px; height: 320px;
         border: 4px solid var(--p);
         border-radius: 50%;
-        padding: 8px;
+        padding: 10px;
         background: linear-gradient(45deg, var(--p), var(--a));
         box-shadow: var(--glow);
     }
     .pf img { 
         width: 100%; height: 100%; object-fit: cover; 
-        border-radius: 50%; border: 8px solid var(--d); 
+        border-radius: 50%; border: 10px solid var(--d); 
     }
 
     .badge {
-        position: absolute; bottom: 10px; right: -10px;
+        position: absolute; bottom: 15px; right: -12px;
         background: var(--p); color: #000;
-        padding: 7px 20px; border-radius: 50px;
-        font-weight: bold; font-size: 0.85rem;
+        padding: 8px 22px; border-radius: 50px;
+        font-weight: bold; font-size: 0.9rem;
     }
 
     /* Section */
-    section { padding: 90px 5%; }
+    section { padding: 100px 5%; }
     .st {
         text-align: center;
         font-family: 'Orbitron', sans-serif;
-        font-size: 2.4rem;
-        margin-bottom: 50px;
+        font-size: 2.5rem;
+        margin-bottom: 55px;
         background: linear-gradient(90deg, var(--p), var(--a));
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
 
-    /* Grid - Minimalis + Horizontal Scroll di Mobile */
+    /* Grid Project & Penghargaan - Minimalis + Horizontal di Mobile */
     .grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 20px;
+        grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+        gap: 22px;
         max-width: 1300px;
         margin: auto;
     }
 
+    /* Horizontal Scroll di Mobile */
     @media (max-width: 768px) {
         .grid {
             display: flex;
             overflow-x: auto;
             gap: 18px;
-            padding-bottom: 15px;
+            padding-bottom: 20px;
             scroll-snap-type: x mandatory;
-            -webkit-overflow-scrolling: touch;
         }
         .grid::-webkit-scrollbar {
             height: 6px;
@@ -174,16 +174,19 @@
             border-radius: 10px;
         }
         .card {
-            min-width: 260px;
+            min-width: 265px;
             scroll-snap-align: start;
         }
+        .hero { padding: 95px 5% 60px; }
+        .ht h1 { font-size: 2.8rem; }
+        .pf { width: 260px; height: 260px; }
     }
 
     .card {
         background: var(--g);
         border-radius: 14px;
         overflow: hidden;
-        border: 1px solid rgba(0,255,136,.2);
+        border: 1px solid rgba(0,255,136,.22);
         transition: .4s;
         flex-shrink: 0;
         cursor: pointer;
@@ -195,20 +198,20 @@
 
     .card img, .thumbnail-container img {
         width: 100%;
-        height: 155px;
+        height: 158px;
         object-fit: cover;
     }
 
     .cb { padding: 16px; }
     .cb h3 {
         color: var(--p);
-        font-size: 1.05rem;
-        margin-bottom: 6px;
+        font-size: 1.08rem;
+        margin-bottom: 7px;
     }
     .cb p {
-        font-size: 0.88rem;
+        font-size: 0.89rem;
         color: #bbb;
-        line-height: 1.4;
+        line-height: 1.45;
         display: -webkit-box;
         -webkit-line-clamp: 2;
         -webkit-box-orient: vertical;
@@ -216,14 +219,14 @@
     }
     .tag {
         background: rgba(0,255,136,.18);
-        padding: 4px 12px;
+        padding: 5px 13px;
         border-radius: 20px;
-        font-size: 0.75rem;
+        font-size: 0.76rem;
         margin-top: 10px;
         display: inline-block;
     }
 
-    /* Thumbnail Video Style */
+    /* Thumbnail Video */
     .thumbnail-container {
         position: relative;
         cursor: pointer;
@@ -232,7 +235,7 @@
         position: absolute;
         top: 50%; left: 50%;
         transform: translate(-50%, -50%);
-        width: 50px; height: 50px;
+        width: 52px; height: 52px;
         background: rgba(0,0,0,0.75);
         border: 3px solid var(--p);
         border-radius: 50%;
@@ -245,7 +248,7 @@
     .thumbnail-container:hover .play-button {
         background: var(--p);
         color: #000;
-        transform: translate(-50%, -50%) scale(1.08);
+        transform: translate(-50%, -50%) scale(1.1);
     }
 
     /* Modal */
@@ -261,23 +264,23 @@
 
     .modal-content {
         position: relative;
-        max-width: 90%;
-        max-height: 88vh;
+        max-width: 92%;
+        max-height: 90vh;
     }
     .modal img, .modal video {
         width: 100%;
-        border: 4px solid var(--p);
-        border-radius: 14px;
+        border: 5px solid var(--p);
+        border-radius: 16px;
         box-shadow: var(--glow);
     }
     .close {
         position: absolute;
-        top: -18px; right: -18px;
-        font-size: 2.6rem;
+        top: -16px; right: -16px;
+        font-size: 2.7rem;
         color: var(--p);
         cursor: pointer;
         background: #000;
-        width: 42px; height: 42px;
+        width: 44px; height: 44px;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -287,18 +290,9 @@
 
     footer {
         text-align: center;
-        padding: 45px 20px;
+        padding: 50px 20px;
         background: var(--g);
         border-top: 1px solid rgba(0,255,136,.2);
-    }
-
-    /* Responsive */
-    @media (max-width: 600px) {
-        .hero { padding: 90px 5% 50px; }
-        .ht h1 { font-size: 2.35rem; }
-        .pf { width: 240px; height: 240px; }
-        .st { font-size: 2rem; margin-bottom: 40px; }
-        section { padding: 80px 5%; }
     }
     </style>
 </head>
