@@ -42,7 +42,9 @@
             overflow-x: hidden;
         }
 
-        h1, h2, h3 {
+        h1,
+        h2,
+        h3 {
             font-family: 'Outfit', sans-serif;
             font-weight: 700;
         }
@@ -82,8 +84,13 @@
         }
 
         @keyframes orb-float {
-            0% { transform: translate(0, 0) scale(1); }
-            100% { transform: translate(5%, 10%) scale(1.2); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            100% {
+                transform: translate(5%, 10%) scale(1.2);
+            }
         }
 
         /* Header Navigation */
@@ -92,19 +99,24 @@
             top: 0;
             left: 0;
             right: 0;
-            height: auto;
-            padding: 15px 5%;
-            background: rgba(5, 5, 5, 0.85);
+            padding: 20px 5%;
+            background: rgba(5, 5, 5, 0.7);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
             border-bottom: 1px solid var(--glass-border);
             z-index: 1000;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            gap: 15px;
             transition: var(--transition);
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 15px 5%;
+                flex-direction: column;
+                gap: 10px;
+            }
         }
 
         .logo {
@@ -182,7 +194,7 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-        
+
         .ht h1 span {
             background: linear-gradient(135deg, var(--accent-color) 0%, #d8b4fe 100%);
             -webkit-background-clip: text;
@@ -288,8 +300,15 @@
         }
 
         @keyframes bounce-subtle {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-8px); }
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-8px);
+            }
         }
 
         /* Sections */
@@ -313,20 +332,19 @@
         }
 
         .grid {
-            display: flex;
-            gap: 25px;
-            max-width: 100%;
-            margin: auto;
-            overflow-x: auto;
-            padding-bottom: 30px; /* Space for hidden scrollbar */
-            scroll-snap-type: x mandatory;
-            /* Hide scrollbar for clean look */
-            -ms-overflow-style: none;  /* IE and Edge */
-            scrollbar-width: none;  /* Firefox */
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
         }
-        
-        .grid::-webkit-scrollbar {
-            display: none; /* Chrome, Safari and Opera */
+
+        @media (max-width: 640px) {
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
         }
 
         /* Cards */
@@ -341,8 +359,7 @@
             -webkit-backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
-            flex: 0 0 clamp(280px, 80vw, 380px); /* Fixed width for horizontal scrolling */
-            scroll-snap-align: center;
+            height: 100%;
         }
 
         .card:hover {
@@ -354,7 +371,7 @@
         .card img,
         .thumbnail-container img {
             width: 100%;
-            height: clamp(180px, 30vw, 250px);
+            height: 220px;
             object-fit: cover;
             transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
             border-bottom: 1px solid var(--glass-border);
@@ -369,7 +386,7 @@
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            background: linear-gradient(to bottom, transparent, rgba(0,0,0,0.2));
+            background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.2));
             position: relative;
             z-index: 2;
         }
@@ -438,8 +455,15 @@
         }
 
         @keyframes ripple {
-            0% { transform: scale(1); opacity: 1; }
-            100% { transform: scale(1.5); opacity: 0; }
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+
+            100% {
+                transform: scale(1.5);
+                opacity: 0;
+            }
         }
 
         .card:hover .play-button {
@@ -529,11 +553,28 @@
 
         footer {
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             border-top: 1px solid var(--glass-border);
             color: var(--text-secondary);
             font-size: 0.95rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.5), transparent);
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .typed-cursor {
+            color: var(--accent-color);
+            font-size: clamp(2.8rem, 8vw, 4.5rem);
         }
     </style>
 
@@ -545,7 +586,7 @@
     <div class="orb"></div>
 
     <header>
-        <a href="#" class="logo">PORTFOLIO.</a>
+        <a href="#" class="logo">M. Ainun Nadjib</a>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -578,7 +619,7 @@
         </div>
     </section>
 
-    <section id="about">
+    <section id="about" class="reveal">
         <h2 class="st">Tentang Saya</h2>
         <p style="max-width:780px; margin:auto; text-align:center; font-size:1.05rem; color:#ccc;">
             Fresh graduate SMKN 1 Pasuruan Jurusan RPL dengan minat kuat di Web Development, Cyber Security, dan Machine
@@ -587,7 +628,7 @@
         </p>
     </section>
 
-    <section id="projects">
+    <section id="projects" class="reveal">
         <h2 class="st">Project Saya</h2>
         <div class="grid">
             <div class="card" onclick="openModal('images/detek.jpeg')">
@@ -615,15 +656,15 @@
                 </div>
             </div>
 
-        <div class="card" onclick="openModal('images/tabungku.JPG')">
+            <div class="card" onclick="openModal('images/tabungku.JPG')">
                 <img src="images/tabungku.JPG" alt="">
                 <div class="cb">
                     <h3>catatan menabung digital</h3>
                     <p>website pencatatan tabungan dan keuangan</p>
                     <span class="tag">Html,CSS,JS And Supabase</span>
                 </div>
-        </div>
-            
+            </div>
+
             <div class="card" onclick="openModal('images/pengamanan_barang.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/pengamanan_barang.mp4" alt="">
@@ -671,7 +712,7 @@
         </div>
     </section>
 
-    <section id="certificates">
+    <section id="certificates" class="reveal">
         <h2 class="st">Sertifikat & Penghargaan</h2>
         <div class="grid">
             <div class="card" onclick="openModal('images/IDOR.jpg')">
@@ -774,6 +815,52 @@
         document.getElementById('modal').addEventListener('click', function (e) {
             if (e.target === this) closeModal();
         });
+
+        // Typing Animation Logic
+        const typedText = document.getElementById('typed');
+        const roles = ['M. Ainun Nadjib', 'Junior Web Dev', 'Python Developer', 'Cyber Security Enthusiast'];
+        let roleIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        function type() {
+            const currentRole = roles[roleIndex];
+            if (isDeleting) {
+                typedText.textContent = currentRole.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typedText.textContent = currentRole.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            let typeSpeed = isDeleting ? 50 : 100;
+
+            if (!isDeleting && charIndex === currentRole.length) {
+                isDeleting = true;
+                typeSpeed = 2000; // Pause at end
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                roleIndex = (roleIndex + 1) % roles.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(type, typeSpeed);
+        }
+
+        // Scroll Reveal Logic
+        const revealElements = document.querySelectorAll('.reveal');
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        revealElements.forEach(el => revealObserver.observe(el));
+
+        // Start Typing
+        document.addEventListener('DOMContentLoaded', type);
     </script>
 </body>
 
