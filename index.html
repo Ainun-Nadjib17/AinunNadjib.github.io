@@ -4,39 +4,28 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Terminal Intro</title>
-<!-- Font Modern ala Hacker/Developer -->
 <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
 
 <style>
-    *{
-        margin:0;
-        padding:0;
-        box-sizing:border-box;
-    }
+    *{ margin:0; padding:0; box-sizing:border-box; }
 
     body{
         background:#0a0a0a;
         color:#00ff41;
-        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
+        font-family: 'JetBrains Mono', monospace;
         overflow:hidden;
-        text-shadow: 0 0 4px rgba(0, 255, 65, 0.4); /* Efek glow halus */
+        text-shadow: 0 0 4px rgba(0, 255, 65, 0.4);
     }
 
-    /* ===== MATRIX CANVAS ===== */
     #matrixCanvas {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        z-index: 0;
-        opacity: 0.12;
+        position: fixed; top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 0; opacity: 0.12;
         pointer-events: none;
     }
 
     #terminal{
-        position: relative;
-        z-index: 1;
+        position: relative; z-index: 1;
         padding: 20px;
         height: 100vh;
         overflow-y: auto;
@@ -46,68 +35,38 @@
         line-height: 1.5;
     }
 
-    /* Custom Scrollbar ala Modern Terminal */
-    #terminal::-webkit-scrollbar {
-        width: 8px;
-    }
-    #terminal::-webkit-scrollbar-track {
-        background: #0a0a0a;
-    }
-    #terminal::-webkit-scrollbar-thumb {
-        background: #00ff41;
-        border-radius: 4px;
-    }
+    #terminal::-webkit-scrollbar { width: 8px; }
+    #terminal::-webkit-scrollbar-track { background: #0a0a0a; }
+    #terminal::-webkit-scrollbar-thumb { background: #00ff41; border-radius: 4px; }
 
-    .cursor{
-        display:inline-block;
-        width:8px;
-        height:18px;
-        background:#00ff41;
-        animation:blink 1s step-end infinite;
-        vertical-align: middle;
-        margin-left: 2px;
-    }
-
-    @keyframes blink{
-        50%{ opacity:0; }
-    }
-
-    /* Warna Prompt ala Kali Linux ZSH */
-    .prompt-user { color: #00ff41; font-weight: bold; }
-    .prompt-symbol { color: #ffffff; }
-    .prompt-host { color: #66ccff; font-weight: bold; }
-    .prompt-path { color: #ffd700; font-weight: bold; }
-    
-    .red{ color:#ff3030; font-weight:bold; text-shadow:0 0 10px #ff3030; }
-    .yellow{ color:#ffd700; }
     .blue{ color:#66ccff; }
     .success{ color:#00ff41; }
-    .approved{ color:#00ff41; font-weight:bold; text-shadow:0 0 15px #00ff41; font-size: 20px; margin: 10px 0; }
+    .yellow{ color:#ffd700; }
+    .white{ color:#ffffff; }
 
-    /* Progress Bar */
+    .approved{
+        color:#00ff41; font-weight:bold;
+        text-shadow:0 0 15px #00ff41;
+        font-size: 20px; margin: 10px 0;
+    }
+
     #progressContainer{
         display:none;
         margin: 15px 0;
-        width:400px;
-        max-width:90%;
+        width:400px; max-width:90%;
         border:1px solid #00ff41;
-        height:20px;
-        border-radius: 3px;
+        height:20px; border-radius: 3px;
         overflow: hidden;
     }
 
     #progressBar{
-        width:0%;
-        height:100%;
+        width:0%; height:100%;
         background: #00ff41;
         box-shadow: 0 0 10px #00ff41;
         transition:width .08s linear;
     }
 
-    /* Glitch */
-    .glitch{
-        animation:glitch .15s infinite;
-    }
+    .glitch{ animation:glitch .15s infinite; }
 
     @keyframes glitch{
         0%{ transform:translate(0); filter:hue-rotate(0deg); }
@@ -117,22 +76,30 @@
         100%{ transform:translate(0); filter:hue-rotate(360deg); }
     }
 
-    /* Input styling yang menyatu dengan terminal */
-    .cmd-input {
-        background: transparent;
-        border: none;
-        color: #ffffff;
-        font-family: 'JetBrains Mono', 'Fira Code', 'Consolas', monospace;
-        font-size: 16px;
-        outline: none;
-        width: 70%;
-        caret-color: #00ff41;
-        text-shadow: 0 0 4px rgba(255, 255, 255, 0.4);
+    .ascii-art {
+        color: #00ff41;
+        font-size: 10px;
+        line-height: 1;
+        margin: 15px 0;
+        text-shadow: 0 0 8px #00ff41;
+        animation: asciiGlow 2s ease-in-out infinite;
     }
 
-    .command-output {
-        margin-bottom: 8px;
-        color: #e0e0e0;
+    @keyframes asciiGlow {
+        0%, 100% { opacity: 0.8; }
+        50% { opacity: 1; }
+    }
+
+    .redirect-msg {
+        color: #ffd700;
+        font-size: 18px;
+        margin-top: 20px;
+        animation: pulse 1.5s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0.5; }
     }
 </style>
 </head>
@@ -145,7 +112,6 @@
     <div id="progressContainer">
         <div id="progressBar"></div>
     </div>
-    <div id="interactive-area"></div>
 </div>
 
 <script>
@@ -153,7 +119,6 @@ const terminal = document.getElementById("terminal");
 const bootSequence = document.getElementById("boot-sequence");
 const progressContainer = document.getElementById("progressContainer");
 const progressBar = document.getElementById("progressBar");
-const interactiveArea = document.getElementById("interactive-area");
 
 const lines = [
     "[ROOT] Initializing system...",
@@ -174,14 +139,11 @@ const lines = [
     "Granting system access..."
 ];
 
-let lineIndex = 0;
-let charIndex = 0;
-let audioUnlocked = false;
+let lineIndex = 0, charIndex = 0;
 
-/* ===== MATRIX RAIN BACKGROUND ===== */
+/* ===== MATRIX RAIN ===== */
 const canvas = document.getElementById('matrixCanvas');
 const ctx = canvas.getContext('2d');
-
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
@@ -195,81 +157,36 @@ function drawMatrix() {
     ctx.fillRect(0, 0, canvas.width, canvas.height);
     ctx.fillStyle = '#00ff41';
     ctx.font = fontSize + 'px JetBrains Mono';
-
     for(let i = 0; i < drops.length; i++) {
         const text = chars[Math.floor(Math.random() * chars.length)];
         ctx.fillText(text, i * fontSize, drops[i] * fontSize);
-        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            drops[i] = 0;
-        }
+        if(drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
         drops[i]++;
     }
 }
 setInterval(drawMatrix, 33);
-
 window.addEventListener('resize', () => {
     canvas.width = window.innerWidth;
     canvas.height = window.innerHeight;
 });
 
-/* ===== KEYBOARD SOUND ===== */
-function unlockAudio(){
-    if(audioUnlocked) return;
-    const ctxAudio = new (window.AudioContext || window.webkitAudioContext)();
-    window.audioCtx = ctxAudio;
-    audioUnlocked = true;
-}
-
-document.addEventListener("click", unlockAudio, { once:true });
-document.addEventListener("keydown", unlockAudio, { once:true });
-
-function playKeySound(){
-    if(!window.audioCtx) return;
-    const osc = audioCtx.createOscillator();
-    const gain = audioCtx.createGain();
-
-    osc.type = "square";
-    osc.frequency.value = 800;
-
-    gain.gain.setValueAtTime(0.03, audioCtx.currentTime);
-    gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.04);
-
-    osc.connect(gain);
-    gain.connect(audioCtx.destination);
-
-    osc.start();
-    osc.stop(audioCtx.currentTime + 0.04);
-}
-
 /* ===== TYPE EFFECT ===== */
 function typeLine(){
-    if(lineIndex >= lines.length){
-        startProgress();
-        return;
-    }
-
+    if(lineIndex >= lines.length){ startProgress(); return; }
     const currentLine = lines[lineIndex];
-
     if(charIndex === 0){
         const div = document.createElement("div");
-        if(currentLine.startsWith("[ROOT]")){
-            div.className = "blue";
-        }
-        else if(currentLine.startsWith("[OK]")){
-            div.className = "success";
-        }
+        if(currentLine.startsWith("[ROOT]")) div.className = "blue";
+        else if(currentLine.startsWith("[OK]")) div.className = "success";
         bootSequence.appendChild(div);
     }
-
     const currentDiv = bootSequence.lastElementChild;
-
     if(charIndex < currentLine.length){
         currentDiv.textContent += currentLine.charAt(charIndex);
-        playKeySound();
         charIndex++;
         terminal.scrollTop = terminal.scrollHeight;
-        setTimeout(typeLine, 25); // Sedikit lebih cepat agar terasa responsif
-    }else{
+        setTimeout(typeLine, 25);
+    } else {
         charIndex = 0;
         lineIndex++;
         setTimeout(typeLine, 150);
@@ -285,12 +202,10 @@ function startProgress(){
 
     progressContainer.style.display = "block";
     let progress = 0;
-
     const interval = setInterval(()=>{
         progress++;
         progressBar.style.width = progress + "%";
         terminal.scrollTop = terminal.scrollHeight;
-
         if(progress >= 100){
             clearInterval(interval);
             setTimeout(showApproved, 300);
@@ -306,133 +221,56 @@ function showApproved(){
     bootSequence.appendChild(approved);
 
     const welcome = document.createElement("div");
+    welcome.className = "white";
     welcome.textContent = "Welcome, root. All systems are operational.";
     welcome.style.marginBottom = "15px";
     bootSequence.appendChild(welcome);
 
-    setTimeout(startGlitch, 800);
+    setTimeout(showIdentity, 800);
 }
 
-/* ===== GLITCH ===== */
+/* ===== IDENTITY REVEAL ===== */
+function showIdentity() {
+    const ascii = document.createElement("pre");
+    ascii.className = "ascii-art";
+    ascii.textContent = `
+  ██████╗  ██████╗ ███╗   ██╗███████╗██╗ ██████╗ 
+ ██╔════╝ ██╔═══██╗████╗  ██║██╔════╝██║██╔════╝ 
+ ██║      ██║   ██║██╔██╗ ██║█████╗  ██║██║  ███╗ 
+ ██║      ██║   ██║██║╚██╗██║██╔══╝  ██║██║   ██║ 
+ ╚██████╗ ╚██████╔╝██║ ╚████║██║     ██║╚██████╔╝ 
+  ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═╝     ╚═╝ ╚═════╝ `;
+    bootSequence.appendChild(ascii);
+
+    const intro = document.createElement("div");
+    intro.className = "white";
+    intro.textContent = "> Full Stack Developer | Security Enthusiast";
+    intro.style.marginBottom = "20px";
+    bootSequence.appendChild(intro);
+
+    setTimeout(startGlitch, 1500);
+}
+
+/* ===== GLITCH + REDIRECT ===== */
 function startGlitch(){
     document.body.classList.add("glitch");
-
+    
     setTimeout(()=>{
         document.body.classList.remove("glitch");
-
-        const readyMsg = document.createElement("div");
-        readyMsg.className = "yellow";
-        readyMsg.textContent = "System ready. Type 'help' for commands or 'portfolio' to continue.\n";
-        bootSequence.appendChild(readyMsg);
-
-        setTimeout(()=>{
-            createPrompt();
-        }, 500);
-
-    }, 1000);
-}
-
-/* ===== INTERACTIVE TERMINAL (MODERN & DI BAWAH) ===== */
-function createPrompt() {
-    const promptLine = document.createElement("div");
-    promptLine.className = "prompt-line";
-    promptLine.innerHTML = `
-        <span class="prompt-user">root</span><span class="prompt-symbol">@</span><span class="prompt-host">kali</span><span class="prompt-symbol">:</span><span class="prompt-path">~</span><span class="prompt-symbol">$ </span>
-        <input type="text" class="cmd-input" autocomplete="off" spellcheck="false" autofocus>
-        <span class="cursor"></span>
-    `;
-    interactiveArea.appendChild(promptLine);
-    
-    const input = promptLine.querySelector('.cmd-input');
-    const cursor = promptLine.querySelector('.cursor');
-    
-    input.focus();
-    terminal.onclick = () => input.focus();
-
-    // Sinkronisasi cursor dengan input
-    input.addEventListener('input', () => {
+        
+        const redirectMsg = document.createElement("div");
+        redirectMsg.className = "redirect-msg";
+        redirectMsg.textContent = "[⟳] Redirecting to portfolio...";
+        bootSequence.appendChild(redirectMsg);
+        
         terminal.scrollTop = terminal.scrollHeight;
-    });
-
-    input.addEventListener('keydown', (e) => {
-        if(e.key === 'Enter') {
-            const cmd = input.value.trim();
-            
-            // 1. Bekukan baris prompt saat ini (hapus input, ganti dengan teks biasa)
-            promptLine.innerHTML = `
-                <span class="prompt-user">root</span><span class="prompt-symbol">@</span><span class="prompt-host">kali</span><span class="prompt-symbol">:</span><span class="prompt-path">~</span><span class="prompt-symbol">$ </span>
-                <span style="color:#ffffff;">${escapeHtml(cmd)}</span>
-            `;
-            
-            // 2. Proses perintah dan tampilkan output DI BAWAHNYA
-            handleCommand(cmd);
-            
-            // 3. Scroll ke paling bawah
-            terminal.scrollTop = terminal.scrollHeight;
-        }
-    });
-}
-
-function handleCommand(cmd) {
-    const output = document.createElement('div');
-    output.className = 'command-output';
-    const lowerCmd = cmd.toLowerCase();
-
-    if(lowerCmd === 'help') {
-        output.innerHTML = `
-<span class="yellow">Available commands:</span>
-  <span class="success">help</span>      Show this help message
-  <span class="success">clear</span>     Clear the terminal screen
-  <span class="success">whoami</span>    Display current user
-  <span class="success">date</span>      Display current date and time
-  <span class="success">portfolio</span> Open portfolio page
-  <span class="success">exit</span>      Close connection
-        `;
-    } 
-    else if(lowerCmd === 'clear') {
-        bootSequence.innerHTML = '';
-        interactiveArea.innerHTML = '';
-        createPrompt();
-        return;
-    } 
-    else if(lowerCmd === 'whoami') {
-        output.textContent = 'root';
-    } 
-    else if(lowerCmd === 'date') {
-        output.textContent = new Date().toString();
-    } 
-    else if(lowerCmd === 'portfolio' || lowerCmd === 'exit') {
-        output.innerHTML = '<span class="yellow">Redirecting to portfolio...</span>';
-        interactiveArea.appendChild(output);
-        terminal.scrollTop = terminal.scrollHeight;
+        
+        // Redirect setelah 2 detik
         setTimeout(() => {
             window.location.href = "portofolio.html";
-        }, 1500);
-        return; 
-    } 
-    else if(lowerCmd === '') {
-        // Jika enter kosong, langsung buat prompt baru
-        createPrompt();
-        return;
-    } 
-    else {
-        output.innerHTML = `<span class="red">bash: ${escapeHtml(cmd)}: command not found</span>`;
-    }
-    
-    interactiveArea.appendChild(output);
-    createPrompt(); // Buat prompt baru di paling bawah
-}
-
-// Utility untuk mencegah XSS
-function escapeHtml(text) {
-    const map = {
-        '&': '&amp;',
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#039;'
-    };
-    return text.replace(/[&<>"']/g, function(m) { return map[m]; });
+        }, 2000);
+        
+    }, 1000);
 }
 
 // Mulai animasi
