@@ -5,24 +5,27 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M. Ainun Nadjib</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         :root {
-            --bg-color: #070709;
-            --card-bg: rgba(22, 22, 28, 0.5);
-            --text-primary: #f0f0f5;
-            --text-secondary: #9ca3af;
-            --text-warm: #d4c8be;
-            --accent-color: #8b5cf6;
-            --accent-hover: #7c3aed;
-            --accent-warm: #e8a87c;
-            --glass-bg: rgba(255, 255, 255, 0.03);
-            --glass-border: rgba(255, 255, 255, 0.07);
-            --transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            --glow: 0 8px 32px rgba(139, 92, 246, 0.2);
+            --bg: #FFF7F3;
+            --text: #1A1A1A;
+            --text-secondary: #777777;
+            --white: #FFFFFF;
+            --black: #1A1A1A;
+            --red: #E5484D;
+            --yellow: #FFD54A;
+            --green: #A8E063;
+            --blue: #7CC7F8;
+            --purple: #C9B6FF;
+            --border: 3px solid #1A1A1A;
+            --shadow: 6px 6px 0px #1A1A1A;
+            --shadow-hover: 3px 3px 0px #1A1A1A;
+            --shadow-active: 0px 0px 0px #1A1A1A;
+            --radius: 16px;
+            --radius-sm: 12px;
         }
 
         * {
@@ -33,13 +36,12 @@
 
         html {
             scroll-behavior: smooth;
-            -webkit-tap-highlight-color: transparent;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-primary);
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
         }
@@ -48,102 +50,47 @@
         h2,
         h3 {
             font-family: 'Outfit', sans-serif;
-            font-weight: 700;
+            font-weight: 800;
         }
 
-        /* Background Effects */
-        .bg {
-            position: fixed;
-            inset: 0;
-            background: radial-gradient(ellipse at 70% 20%, #1a1625 0%, var(--bg-color) 55%),
-                        radial-gradient(ellipse at 30% 80%, #1a1510 0%, transparent 50%);
-            z-index: -2;
-        }
-
-        .bg::after {
-            content: '';
-            position: fixed;
-            inset: 0;
-            background: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
-            pointer-events: none;
-            z-index: -1;
-        }
-
-        .orb {
-            position: fixed;
-            border-radius: 50%;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.15), transparent 70%);
-            filter: blur(60px);
-            animation: orb-float 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .orb:nth-child(1) {
-            width: 50vw;
-            height: 50vw;
-            top: -10vw;
-            left: -10vw;
-        }
-
-        .orb:nth-child(2) {
-            width: 60vw;
-            height: 60vw;
-            bottom: -20vw;
-            right: -10vw;
-            background: radial-gradient(circle, rgba(99, 102, 241, 0.15), transparent 70%);
-            animation-delay: -10s;
-        }
-
-        @keyframes orb-float {
-            0% {
-                transform: translate(0, 0) scale(1);
-            }
-
-            100% {
-                transform: translate(5%, 10%) scale(1.2);
-            }
-        }
-
-        /* Header Navigation */
+        /* ===== HEADER ===== */
         header {
             position: fixed;
             top: 16px;
             left: 50%;
             transform: translateX(-50%);
             width: auto;
-            max-width: 680px;
-            padding: 10px 12px 10px 24px;
-            background: rgba(10, 10, 14, 0.65);
-            backdrop-filter: blur(24px);
-            -webkit-backdrop-filter: blur(24px);
-            border: 1px solid var(--glass-border);
+            max-width: 700px;
+            padding: 10px 14px 10px 24px;
+            background: var(--white);
+            border: var(--border);
             border-radius: 60px;
             z-index: 1000;
             display: flex;
             justify-content: space-between;
             align-items: center;
             gap: 1.5rem;
-            transition: var(--transition);
-        }
-
-        @media (max-width: 768px) {
-            header {
-                top: 10px;
-                padding: 8px 10px 8px 18px;
-                gap: 0.8rem;
-                max-width: 95%;
-            }
+            box-shadow: var(--shadow);
         }
 
         .logo {
             font-family: 'Outfit', sans-serif;
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--text-primary);
+            font-size: 1.1rem;
+            font-weight: 800;
+            color: var(--text);
             text-decoration: none;
-            letter-spacing: -0.3px;
             white-space: nowrap;
+            letter-spacing: -0.5px;
+        }
+
+        .logo span {
+            background: var(--red);
+            color: var(--white);
+            padding: 2px 10px;
+            border-radius: 8px;
+            border: var(--border);
+            font-size: 0.85rem;
+            margin-left: 4px;
         }
 
         nav {
@@ -154,39 +101,181 @@
         }
 
         nav a {
-            color: var(--text-secondary);
+            color: var(--text);
             text-decoration: none;
-            font-size: 0.82rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
             padding: 7px 14px;
             border-radius: 50px;
-            transition: var(--transition);
+            transition: all 0.2s ease;
             white-space: nowrap;
         }
 
         nav a:hover,
         nav a.active {
-            color: var(--text-primary);
-            background: rgba(255, 255, 255, 0.08);
+            background: var(--yellow);
+            border: 2px solid var(--black);
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 1024px) {
+            header {
+                max-width: 85%;
+            }
+            section {
+                padding: 80px 5%;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                max-width: 95%;
+                padding: 8px 10px 8px 18px;
+                gap: 0.5rem;
+            }
+            nav {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+                scrollbar-width: none;
+                flex-shrink: 1;
+                min-width: 0;
+            }
+            nav::-webkit-scrollbar { display: none; }
             nav a {
                 font-size: 0.75rem;
                 padding: 6px 10px;
             }
-            .logo {
-                font-size: 0.95rem;
+            .logo { font-size: 0.95rem; }
+            .logo span { display: none; }
+            section {
+                padding: 60px 4%;
+            }
+            .grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+                gap: 16px;
+            }
+            .card img, .thumbnail-container img {
+                height: 160px;
+            }
+            .cb {
+                padding: 16px 18px;
+            }
+            .cb h3 {
+                font-size: 1rem;
+            }
+            .cb p {
+                font-size: 0.85rem;
+            }
+            .contact-btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+            .close {
+                top: -45px;
+                right: 0;
+                width: 36px;
+                height: 36px;
+            }
+            .modal-content {
+                max-width: 95%;
+            }
+            footer {
+                padding: 40px 16px 30px;
+            }
+            footer .footer-links {
+                gap: 1rem;
             }
         }
 
-        /* Hero Section */
+        @media (max-width: 480px) {
+            header {
+                padding: 6px 8px 6px 14px;
+                gap: 0.3rem;
+                border-radius: 50px;
+            }
+            nav a {
+                font-size: 0.7rem;
+                padding: 5px 8px;
+            }
+            .hero {
+                padding: 120px 4% 60px;
+            }
+            .hc {
+                gap: 30px;
+            }
+            .pf {
+                width: 220px;
+                height: 220px;
+                padding: 6px;
+            }
+            .badge {
+                padding: 6px 16px;
+                font-size: 0.75rem;
+                bottom: -10px;
+                right: 12px;
+            }
+            .socials a {
+                width: 42px;
+                height: 42px;
+                font-size: 1rem;
+            }
+            .grid {
+                grid-template-columns: 1fr;
+                gap: 14px;
+            }
+            .card img, .thumbnail-container img {
+                height: 180px;
+            }
+            .section-divider {
+                margin-bottom: 2rem;
+            }
+            .skills-row {
+                gap: 8px;
+            }
+            .skill-chip {
+                padding: 8px 14px;
+                font-size: 0.8rem;
+            }
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+            .contact-btn {
+                width: 100%;
+                max-width: 280px;
+                justify-content: center;
+            }
+            .modal {
+                padding: 10px;
+            }
+            .modal img, .modal video {
+                border-radius: var(--radius-sm);
+            }
+            footer .footer-links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .pf {
+                width: 180px;
+                height: 180px;
+            }
+            .ht h1 {
+                font-size: 1.8rem;
+            }
+            .sub {
+                font-size: 0.75rem;
+                padding: 5px 12px;
+            }
+        }
+
+        /* ===== HERO SECTION ===== */
         .hero {
             min-height: 100vh;
             display: flex;
             align-items: center;
             padding: 120px 5% 80px;
-            perspective: 1000px;
         }
 
         .hc {
@@ -196,7 +285,6 @@
             grid-template-columns: 1fr 1fr;
             gap: 60px;
             align-items: center;
-            text-align: left;
             width: 100%;
         }
 
@@ -206,40 +294,38 @@
                 text-align: center;
                 gap: 40px;
             }
-            .hero { padding: 140px 5% 80px; }
+            .hero { padding: 130px 5% 60px; }
+            .scroll-hint { bottom: 20px; }
         }
 
         .ht h1 {
-            font-size: clamp(2.8rem, 8vw, 4.5rem);
+            font-size: clamp(2.5rem, 7vw, 4rem);
             line-height: 1.1;
             margin-bottom: 1rem;
-            background: linear-gradient(135deg, #fff 0%, #a1a1aa 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--text);
         }
 
         .ht h1 span {
-            background: linear-gradient(135deg, var(--accent-color) 0%, #d8b4fe 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            color: var(--red);
         }
 
         .sub {
-            font-size: clamp(0.85rem, 2vw, 0.95rem);
-            font-weight: 600;
-            color: var(--accent-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--text);
             margin: 0 0 1.5rem;
             display: inline-block;
             padding: 6px 16px;
-            background: rgba(139, 92, 246, 0.08);
+            background: var(--yellow);
             border-radius: 50px;
-            border: 1px solid rgba(139, 92, 246, 0.15);
-            letter-spacing: 1.5px;
+            border: var(--border);
+            letter-spacing: 1px;
             text-transform: uppercase;
+            box-shadow: 4px 4px 0px var(--black);
         }
 
         @media (max-width: 768px) {
-            .sub { margin: 0 auto 1.5rem; }
+            .sub { margin: 0 auto 1.5rem; font-size: 0.8rem; }
         }
 
         .ht p {
@@ -251,7 +337,7 @@
         }
 
         @media (max-width: 768px) {
-            .ht p { margin: 0 auto 2.5rem; }
+            .ht p { margin: 0 auto 2rem; font-size: 0.95rem; }
         }
 
         .socials {
@@ -261,134 +347,105 @@
         }
 
         @media (max-width: 768px) {
-            .socials { justify-content: center; }
+            .socials { justify-content: center; gap: 0.8rem; }
         }
 
         .socials a {
-            width: 46px;
-            height: 46px;
-            background: var(--glass-bg);
-            border: 1px solid var(--glass-border);
+            width: 48px;
+            height: 48px;
+            background: var(--white);
+            border: var(--border);
             border-radius: 14px;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: var(--text-primary);
+            color: var(--text);
             font-size: 1.15rem;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px var(--black);
         }
 
         .socials a:hover {
-            background: var(--accent-color);
-            border-color: var(--accent-color);
-            transform: translateY(-5px);
-            box-shadow: var(--glow);
-            color: white;
+            background: var(--red);
+            color: var(--white);
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px var(--black);
         }
 
         .hp {
             position: relative;
             display: flex;
             justify-content: center;
-            perspective: 800px;
         }
 
         .pf {
-            width: clamp(280px, 50vw, 400px);
-            height: clamp(280px, 50vw, 400px);
-            border-radius: 30px;
+            width: clamp(280px, 50vw, 380px);
+            height: clamp(280px, 50vw, 380px);
+            border-radius: var(--radius);
             padding: 8px;
-            background: linear-gradient(135deg, rgba(139, 92, 246, 0.5), rgba(99, 102, 241, 0.2));
-            box-shadow:
-                0 20px 60px rgba(139, 92, 246, 0.2),
-                0 0 0 1px rgba(255, 255, 255, 0.05),
-                inset 0 1px 0 rgba(255, 255, 255, 0.1);
+            background: var(--purple);
+            box-shadow: var(--shadow);
+            border: var(--border);
             position: relative;
-            overflow: hidden;
-            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.6s ease;
-            backdrop-filter: blur(10px);
-            border: 1px solid var(--glass-border);
-            animation: float-3d 6s infinite ease-in-out;
-            transform-style: preserve-3d;
-        }
-
-        .pf:hover {
-            transform: rotateY(-5deg) rotateX(3deg) scale(1.03);
-            box-shadow:
-                0 30px 80px rgba(139, 92, 246, 0.35),
-                0 0 0 1px rgba(255, 255, 255, 0.08),
-                inset 0 1px 0 rgba(255, 255, 255, 0.15);
-        }
-
-        @keyframes float-3d {
-            0%, 100% { transform: translateY(0) rotateY(0deg) rotateX(0deg); }
-            25% { transform: translateY(-10px) rotateY(2deg) rotateX(-1deg); }
-            50% { transform: translateY(-5px) rotateY(-2deg) rotateX(1deg); }
-            75% { transform: translateY(-12px) rotateY(1deg) rotateX(-0.5deg); }
         }
 
         .pf img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 22px;
-            background-color: #111;
+            border-radius: 10px;
+            background-color: #ddd;
         }
 
         .badge {
             position: absolute;
-            bottom: -10px;
+            bottom: -12px;
             right: 20px;
-            background: linear-gradient(135deg, var(--accent-color), #4f46e5);
-            color: white;
+            background: var(--green);
+            color: var(--black);
             padding: 8px 22px;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             font-size: 0.85rem;
-            box-shadow: 0 10px 30px rgba(79, 70, 229, 0.4);
-            z-index: 10;
-            border: 2px solid var(--bg-color);
+            box-shadow: 4px 4px 0px var(--black);
+            border: var(--border);
             letter-spacing: 0.5px;
         }
 
-        @keyframes bounce-subtle {
-
-            0%,
-            100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-8px);
-            }
-        }
-
-        /* Sections */
+        /* ===== SECTIONS ===== */
         section {
             padding: 100px 5%;
             position: relative;
             z-index: 10;
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         .st {
             text-align: center;
             font-size: clamp(2rem, 5vw, 2.8rem);
-            margin-bottom: 20px;
-            background: linear-gradient(to right, #fff, var(--text-secondary));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            color: var(--text);
             position: relative;
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
         }
 
+        .section-divider {
+            width: 60px;
+            height: 6px;
+            background: var(--red);
+            margin: 0 auto 3rem;
+            border-radius: 3px;
+            border: 2px solid var(--black);
+        }
+
         .grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 20px;
-            max-width: 1060px;
+            gap: 24px;
+            max-width: 1100px;
             margin: 0 auto;
         }
 
@@ -399,61 +456,59 @@
             }
         }
 
-        /* Cards */
+        /* ===== CARDS ===== */
         .card {
-            background: var(--card-bg);
-            border-radius: 14px;
+            background: var(--white);
+            border-radius: var(--radius);
             overflow: hidden;
-            border: 1px solid var(--glass-border);
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s ease, border-color 0.4s ease;
+            border: var(--border);
+            transition: all 0.2s ease;
             cursor: pointer;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
             display: flex;
             flex-direction: column;
             height: 100%;
-            transform-style: preserve-3d;
-            perspective: 600px;
+            box-shadow: var(--shadow);
         }
 
         .card:hover {
-            transform: translateY(-6px) rotateX(1.5deg);
-            border-color: rgba(139, 92, 246, 0.3);
-            box-shadow:
-                0 20px 40px rgba(0, 0, 0, 0.35),
-                0 0 0 1px rgba(139, 92, 246, 0.1);
+            transform: translate(3px, 3px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .card:active {
+            transform: translate(6px, 6px);
+            box-shadow: var(--shadow-active);
         }
 
         .card img,
         .thumbnail-container img {
             width: 100%;
-            height: 170px;
+            height: 180px;
             object-fit: cover;
-            transition: transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease;
         }
 
         .card:hover img {
-            transform: scale(1.05);
+            transform: scale(1.03);
         }
 
         .cb {
-            padding: 18px;
+            padding: 20px 24px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
-            position: relative;
-            z-index: 2;
         }
 
         .cb h3 {
-            font-size: 1.05rem;
+            font-size: 1.1rem;
             margin-bottom: 6px;
-            color: var(--text-primary);
+            color: var(--text);
+            font-weight: 700;
             line-height: 1.3;
         }
 
         .cb p {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             color: var(--text-secondary);
             margin-bottom: 14px;
             flex-grow: 1;
@@ -461,19 +516,25 @@
         }
 
         .tag {
-            background: rgba(139, 92, 246, 0.08);
-            color: var(--text-secondary);
-            padding: 4px 12px;
-            border-radius: 6px;
-            font-size: 0.72rem;
-            font-weight: 500;
+            background: var(--yellow);
+            color: var(--text);
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
             display: inline-flex;
             align-items: center;
             align-self: flex-start;
             letter-spacing: 0.3px;
+            border: 2px solid var(--black);
         }
 
-        /* Modal & Videos */
+        .tag.green { background: var(--green); }
+        .tag.blue { background: var(--blue); }
+        .tag.purple { background: var(--purple); }
+        .tag.red { background: var(--red); color: var(--white); }
+
+        /* ===== MODAL & VIDEOS ===== */
         .thumbnail-container {
             position: relative;
             overflow: hidden;
@@ -484,54 +545,29 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 44px;
-            height: 44px;
-            background: rgba(139, 92, 246, 0.85);
-            backdrop-filter: blur(5px);
-            border: none;
+            width: 52px;
+            height: 52px;
+            background: var(--red);
+            border: var(--border);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
-            font-size: 14px;
-            transition: var(--transition);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+            color: var(--white);
+            font-size: 16px;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px var(--black);
             z-index: 5;
         }
 
-        .play-button::after {
-            content: '';
-            position: absolute;
-            inset: -4px;
-            border-radius: 50%;
-            border: 1.5px solid rgba(139, 92, 246, 0.4);
-            animation: ripple 1.5s infinite ease-out;
-        }
-
-        @keyframes ripple {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            100% {
-                transform: scale(1.5);
-                opacity: 0;
-            }
-        }
-
         .card:hover .play-button {
-            background: var(--accent-hover);
             transform: translate(-50%, -50%) scale(1.1);
         }
 
         .modal {
             position: fixed;
             inset: 0;
-            background: rgba(0, 0, 0, 0.85);
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(0, 0, 0, 0.8);
             z-index: 9999;
             display: none;
             align-items: center;
@@ -551,7 +587,7 @@
             max-width: 900px;
             width: 100%;
             transform: scale(0.95);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: transform 0.3s ease;
         }
 
         .modal.active .modal-content {
@@ -561,8 +597,9 @@
         .modal img,
         .modal video {
             width: 100%;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+            border-radius: var(--radius);
+            border: var(--border);
+            box-shadow: var(--shadow);
             max-height: 85vh;
             object-fit: contain;
             background: #000;
@@ -570,79 +607,29 @@
 
         .close {
             position: absolute;
-            top: -45px;
+            top: -50px;
             right: 0;
-            font-size: 36px;
-            color: rgba(255, 255, 255, 0.7);
+            width: 40px;
+            height: 40px;
+            background: var(--red);
+            border: var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
             cursor: pointer;
-            transition: var(--transition);
-            line-height: 1;
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px var(--black);
+            font-size: 16px;
         }
 
         .close:hover {
-            color: white;
-            transform: scale(1.1);
+            transform: translate(3px, 3px);
+            box-shadow: 0px 0px 0px var(--black);
         }
 
-        /* Contact Section */
-        #contact {
-            text-align: center;
-        }
-
-        #contact p {
-            display: inline-block;
-            background: rgba(139, 92, 246, 0.1);
-            padding: 15px 30px;
-            border-radius: 50px;
-            border: 1px solid rgba(139, 92, 246, 0.2);
-            font-weight: 600;
-            letter-spacing: 1px;
-            transition: var(--transition);
-        }
-
-        #contact p:hover {
-            background: rgba(139, 92, 246, 0.2);
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-        }
-
-        footer {
-            text-align: center;
-            padding: 60px 20px 40px;
-            border-top: 1px solid var(--glass-border);
-            color: var(--text-secondary);
-            font-size: 0.9rem;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.5), transparent);
-        }
-
-        footer .footer-links {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-bottom: 1.5rem;
-            flex-wrap: wrap;
-        }
-
-        footer .footer-links a {
-            color: var(--text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            transition: color 0.3s ease;
-        }
-
-        footer .footer-links a:hover {
-            color: var(--accent-color);
-        }
-
-        footer .footer-line {
-            width: 60px;
-            height: 2px;
-            background: linear-gradient(to right, transparent, var(--accent-color), transparent);
-            margin: 1.5rem auto;
-            border-radius: 2px;
-        }
-
-        /* About Section Enhanced */
+        /* ===== ABOUT SECTION ===== */
         .about-content {
             max-width: 800px;
             margin: 0 auto;
@@ -651,14 +638,14 @@
 
         .about-text {
             font-size: 1.1rem;
-            color: var(--text-warm);
+            color: var(--text-secondary);
             line-height: 1.9;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .about-text strong {
-            color: var(--text-primary);
-            font-weight: 600;
+            color: var(--text);
+            font-weight: 700;
         }
 
         .skills-row {
@@ -674,28 +661,36 @@
             align-items: center;
             gap: 8px;
             padding: 10px 20px;
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
+            background: var(--white);
+            border: var(--border);
             border-radius: 50px;
-            font-size: 0.88rem;
-            font-weight: 500;
-            color: var(--text-secondary);
-            transition: var(--transition);
-            backdrop-filter: blur(8px);
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--text);
+            transition: all 0.2s ease;
+            box-shadow: 3px 3px 0px var(--black);
         }
 
         .skill-chip i {
             font-size: 1rem;
-            color: var(--accent-color);
+            color: var(--red);
         }
 
         .skill-chip:hover {
-            border-color: rgba(139, 92, 246, 0.4);
-            color: var(--text-primary);
-            transform: translateY(-2px);
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px var(--black);
         }
 
-        /* Contact Section Enhanced */
+        .skill-chip:nth-child(odd) { background: var(--yellow); }
+        .skill-chip:nth-child(even) { background: var(--blue); }
+        .skill-chip:nth-child(3n) { background: var(--green); }
+        .skill-chip:nth-child(5n) { background: var(--purple); }
+
+        /* ===== CONTACT SECTION ===== */
+        #contact {
+            text-align: center;
+        }
+
         .contact-content {
             max-width: 600px;
             margin: 0 auto;
@@ -721,39 +716,85 @@
             align-items: center;
             gap: 10px;
             padding: 14px 28px;
-            background: var(--card-bg);
-            border: 1px solid var(--glass-border);
-            border-radius: 14px;
-            color: var(--text-primary);
+            background: var(--white);
+            border: var(--border);
+            border-radius: var(--radius-sm);
+            color: var(--text);
             text-decoration: none;
             font-size: 0.95rem;
-            font-weight: 500;
-            transition: var(--transition);
-            backdrop-filter: blur(10px);
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 4px 4px 0px var(--black);
         }
 
         .contact-btn i {
             font-size: 1.1rem;
-            color: var(--accent-color);
+            color: var(--red);
         }
 
         .contact-btn:hover {
-            border-color: rgba(139, 92, 246, 0.5);
-            transform: translateY(-3px);
-            box-shadow: var(--glow);
-            background: rgba(139, 92, 246, 0.1);
+            transform: translate(4px, 4px);
+            box-shadow: 0px 0px 0px var(--black);
         }
 
         .contact-btn.primary {
-            background: linear-gradient(135deg, var(--accent-color), #6d28d9);
-            border-color: transparent;
+            background: var(--red);
+            color: var(--white);
+            border: var(--border);
         }
 
-        .contact-btn.primary:hover {
-            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.4);
+        .contact-btn.primary i {
+            color: var(--white);
         }
 
-        /* Scroll Down Indicator */
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 60px 20px 40px;
+            border-top: var(--border);
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            background: var(--white);
+        }
+
+        footer .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        footer .footer-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            padding: 6px 14px;
+            border-radius: 50px;
+        }
+
+        footer .footer-links a:hover {
+            background: var(--yellow);
+            border: 2px solid var(--black);
+        }
+
+        footer .footer-line {
+            width: 60px;
+            height: 4px;
+            background: var(--red);
+            margin: 1.5rem auto;
+            border-radius: 2px;
+            border: 2px solid var(--black);
+        }
+
+        footer p {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* ===== SCROLL HINT ===== */
         .scroll-hint {
             position: absolute;
             bottom: 40px;
@@ -765,6 +806,7 @@
             gap: 8px;
             color: var(--text-secondary);
             font-size: 0.8rem;
+            font-weight: 600;
             letter-spacing: 2px;
             text-transform: uppercase;
             opacity: 0.6;
@@ -786,20 +828,11 @@
             50% { opacity: 0.7; }
         }
 
-        /* Section Divider */
-        .section-divider {
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(to right, var(--accent-color), var(--accent-warm));
-            margin: 0 auto 2rem;
-            border-radius: 3px;
-        }
-
-        /* Reveal Animations */
+        /* ===== REVEAL ANIMATIONS ===== */
         .reveal {
             opacity: 0;
             transform: translateY(30px);
-            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            transition: all 0.6s ease;
         }
 
         .reveal.active {
@@ -807,39 +840,34 @@
             transform: translateY(0);
         }
 
-        .typed-cursor {
-            color: var(--accent-color);
-            font-size: clamp(2.8rem, 8vw, 4.5rem);
-        }
-
-        /* Card stagger animation */
+        /* Card stagger */
         .grid .card { opacity: 0; transform: translateY(20px); }
         .grid.animated .card {
-            animation: card-in 0.5s ease forwards;
+            animation: card-in 0.4s ease forwards;
         }
         .grid.animated .card:nth-child(1) { animation-delay: 0s; }
-        .grid.animated .card:nth-child(2) { animation-delay: 0.1s; }
-        .grid.animated .card:nth-child(3) { animation-delay: 0.2s; }
-        .grid.animated .card:nth-child(4) { animation-delay: 0.3s; }
-        .grid.animated .card:nth-child(5) { animation-delay: 0.4s; }
-        .grid.animated .card:nth-child(6) { animation-delay: 0.5s; }
-        .grid.animated .card:nth-child(7) { animation-delay: 0.6s; }
-        .grid.animated .card:nth-child(8) { animation-delay: 0.7s; }
+        .grid.animated .card:nth-child(2) { animation-delay: 0.08s; }
+        .grid.animated .card:nth-child(3) { animation-delay: 0.16s; }
+        .grid.animated .card:nth-child(4) { animation-delay: 0.24s; }
+        .grid.animated .card:nth-child(5) { animation-delay: 0.32s; }
+        .grid.animated .card:nth-child(6) { animation-delay: 0.4s; }
+        .grid.animated .card:nth-child(7) { animation-delay: 0.48s; }
+        .grid.animated .card:nth-child(8) { animation-delay: 0.56s; }
+        .grid.animated .card:nth-child(9) { animation-delay: 0.64s; }
+        .grid.animated .card:nth-child(10) { animation-delay: 0.72s; }
+        .grid.animated .card:nth-child(11) { animation-delay: 0.8s; }
+        .grid.animated .card:nth-child(12) { animation-delay: 0.88s; }
 
         @keyframes card-in {
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
-
 </head>
 
 <body>
-    <div class="bg"></div>
-    <div class="orb"></div>
-    <div class="orb"></div>
 
     <header>
-        <a href="#" class="logo">Ainun</a>
+        <a href="#" class="logo">Ainun<span>Dev</span></a>
         <nav>
             <a href="#home">Home</a>
             <a href="#about">About</a>
@@ -849,6 +877,7 @@
         </nav>
     </header>
 
+    <!-- ===== HERO ===== -->
     <section id="home" class="hero">
         <div class="hc">
             <div class="ht">
@@ -860,15 +889,11 @@
                     <a href="https://www.linkedin.com/in/mokhamad-ainun-nadjib-795a71339" target="_blank"><i
                             class="fab fa-linkedin"></i></a>
                     <a href="https://ainun-nadjib17.github.io/" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="mailto:mokhamadainunnadjib@gmail.com">
-    <i class="fas fa-envelope"></i>
-</a>
-
-<a href="https://instagram.com/ainun_nadjib17" target="_blank">
-    <i class="fab fa-instagram"></i>
-</a>
+                    <a href="mailto:mokhamadainunnadjib@gmail.com"><i class="fas fa-envelope"></i></a>
+                    <a href="https://instagram.com/ainun_nadjib17" target="_blank"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <div class="hp" style="position:relative; text-align:center; order: 2;">
+            <div class="hp">
                 <div class="pf">
                     <img src="images/saya.jpg" alt="M. Ainun Nadjib">
                 </div>
@@ -881,6 +906,7 @@
         </div>
     </section>
 
+    <!-- ===== ABOUT ===== -->
     <section id="about" class="reveal">
         <h2 class="st">Tentang Saya</h2>
         <div class="section-divider"></div>
@@ -908,10 +934,12 @@
         </div>
     </section>
 
+    <!-- ===== PROJECTS ===== -->
     <section id="projects" class="reveal">
         <h2 class="st">Project Saya</h2>
         <div class="section-divider"></div>
         <div class="grid">
+            <!-- Existing projects -->
             <div class="card" onclick="openModal('images/detek.jpeg')">
                 <img src="images/detek.jpeg" alt="">
                 <div class="cb">
@@ -920,7 +948,7 @@
                     <span class="tag">Python</span>
                 </div>
             </div>
-            
+
             <div class="card" onclick="openModal('images/Absen_barcode.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/Absen_Barcode.mp4" alt="">
@@ -928,26 +956,26 @@
                 </div>
                 <div class="cb">
                     <h3>Absen Barcode</h3>
-                   <p>Absen Pekerja menggunakan barcode</p>
-                    <span class="tag">Django</span>
+                    <p>Absen Pekerja menggunakan barcode</p>
+                    <span class="tag purple">Django</span>
                 </div>
             </div>
-            
+
             <div class="card" onclick="openModal('images/aps.JPG')">
                 <img src="images/aps.JPG" alt="">
                 <div class="cb">
                     <h3>Mobile Library App</h3>
                     <p>Aplikasi peminjaman buku Flutter + Flask API</p>
-                    <span class="tag">Flutter</span>
+                    <span class="tag blue">Flutter</span>
                 </div>
             </div>
 
             <div class="card" onclick="openModal('images/tabungku.JPG')">
                 <img src="images/tabungku.JPG" alt="">
                 <div class="cb">
-                    <h3>catatan menabung digital</h3>
-                    <p>website pencatatan tabungan dan keuangan</p>
-                    <span class="tag">Html,CSS,JS And Supabase</span>
+                    <h3>Catat Menabung Digital</h3>
+                    <p>Website pencatatan tabungan dan keuangan</p>
+                    <span class="tag green">HTML/CSS/JS + Supabase</span>
                 </div>
             </div>
 
@@ -962,7 +990,7 @@
                     <span class="tag">Python</span>
                 </div>
             </div>
-            
+
             <div class="card" onclick="openModal('images/detek_target.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/detek.mp4" alt="">
@@ -971,9 +999,10 @@
                 <div class="cb">
                     <h3>Targeted Object Detection</h3>
                     <p>Deteksi objek spesifik sesuai target</p>
-                    <span class="tag">Python</span>
+                    <span class="tag red">Python</span>
                 </div>
             </div>
+
             <div class="card" onclick="openModal('images/deteksi_tumor_otak.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/deteksi_tumor_otak.mp4" alt="">
@@ -982,9 +1011,10 @@
                 <div class="cb">
                     <h3>Brain Tumor Detection</h3>
                     <p>Klasifikasi MRI menggunakan MobileNetV2</p>
-                    <span class="tag">TensorFlow</span>
+                    <span class="tag blue">TensorFlow</span>
                 </div>
             </div>
+
             <div class="card" onclick="openModal('images/deteksi_roast_beans.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/deteksi_roast_beans.mp4" alt="">
@@ -993,20 +1023,22 @@
                 <div class="cb">
                     <h3>Coffee Roast Classification</h3>
                     <p>Klasifikasi tingkat roasting biji kopi</p>
-                    <span class="tag">TensorFlow</span>
+                    <span class="tag green">TensorFlow</span>
                 </div>
             </div>
+
             <div class="card" onclick="openModal('images/isyarat.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/isyarat.mp4" alt="">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
-                    <h3>gesture detection</h3>
-                    <p>bahasa isyarat </p>
-                    <span class="tag">Mediapipe</span>
+                    <h3>Gesture Detection</h3>
+                    <p>Bahasa isyarat real-time</p>
+                    <span class="tag purple">Mediapipe</span>
                 </div>
             </div>
+
             <div class="card" onclick="openModal('images/Inventaris.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/Inventaris.mp4" alt="">
@@ -1015,21 +1047,36 @@
                 <div class="cb">
                     <h3>Peminjaman Alat Komputer</h3>
                     <p>Peminjaman Alat Komputer Berbasis Web</p>
-                    <span class="tag">Django</span>
+                    <span class="tag purple">Django</span>
+                </div>
+            </div>
+
+            <!-- NEW PROJECT: Rt_Rw.mp4 -->
+            <div class="card" onclick="openModal('images/Rt_Rw.mp4')">
+                <div class="thumbnail-container">
+                    <img src="images/Rt_Rw.mp4" alt="">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="cb">
+                    <h3>RT/RW Management System</h3>
+                    <p>Sistem manajemen data RT/RW berbasis web</p>
+                    <span class="tag">Web App</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===== CERTIFICATES & AWARDS ===== -->
     <section id="certificates" class="reveal">
         <h2 class="st">Sertifikat & Penghargaan</h2>
         <div class="section-divider"></div>
         <div class="grid">
+            <!-- Existing certificates -->
             <div class="card" onclick="openModal('images/IDOR.jpg')">
                 <img src="images/IDOR.jpg" alt="">
                 <div class="cb">
                     <h3>Bug Bounty - IDOR</h3>
-                    <span class="tag">Cyber Security</span>
+                    <span class="tag red">Cyber Security</span>
                 </div>
             </div>
             <div class="card" onclick="openModal('images/sambo.jpg')">
@@ -1037,40 +1084,78 @@
                 <div class="cb">
                     <h3>Juara Sambo Jatim</h3>
                     <p>Medali Emas 2024</p>
-                    <span class="tag">Olahraga</span>
+                    <span class="tag green">Olahraga</span>
                 </div>
             </div>
             <div class="card" onclick="openModal('images/career2.jpg')">
                 <img src="images/career2.jpg" alt="">
                 <div class="cb">
                     <h3>IBM Career Management</h3>
-                    <span class="tag">Soft Skill</span>
+                    <span class="tag blue">Soft Skill</span>
                 </div>
             </div>
             <div class="card" onclick="openModal('images/career.jpg')">
                 <img src="images/career.jpg" alt="">
                 <div class="cb">
                     <h3>IBM Digital Mindset</h3>
-                    <span class="tag">Digital Skill</span>
+                    <span class="tag blue">Digital Skill</span>
                 </div>
             </div>
             <div class="card" onclick="openModal('images/penulis.JPG')">
                 <img src="images/penulis.JPG" alt="">
                 <div class="cb">
                     <h3>Penulis Terbaik Nasional</h3>
-                    <span class="tag">Penulis</span>
+                    <span class="tag yellow" style="background: var(--yellow);">Penulis</span>
                 </div>
             </div>
             <div class="card" onclick="openModal('images/penulis2.JPG')">
                 <img src="images/penulis2.JPG" alt="">
                 <div class="cb">
                     <h3>Penulis Terbaik Nasional</h3>
-                    <span class="tag">Penulis</span>
+                    <span class="tag yellow" style="background: var(--yellow);">Penulis</span>
+                </div>
+            </div>
+
+            <!-- NEW CERTIFICATES -->
+            <div class="card" onclick="openModal('images/sertif_kompetensi.jpeg')">
+                <img src="images/sertif_kompetensi.jpeg" alt="">
+                <div class="cb">
+                    <h3>Sertifikat Kompetensi</h3>
+                    <span class="tag purple">Kompetensi</span>
+                </div>
+            </div>
+            <div class="card" onclick="openModal('images/sertif_Vibe_pentesting.webp')">
+                <img src="images/sertif_Vibe_pentesting.webp" alt="">
+                <div class="cb">
+                    <h3>Sertifikat Vibe Pentesting</h3>
+                    <span class="tag red">Cyber Security</span>
+                </div>
+            </div>
+            <div class="card" onclick="openModal('images/dibimbing.webp')">
+                <img src="images/dibimbing.webp" alt="">
+                <div class="cb">
+                    <h3>Dibimbing.id</h3>
+                    <span class="tag blue">Bootcamp</span>
+                </div>
+            </div>
+            <div class="card" onclick="openModal('images/dicoding.webp')">
+                <img src="images/dicoding.webp" alt="">
+                <div class="cb">
+                    <h3>Dicoding Academy</h3>
+                    <span class="tag green">Belajar</span>
+                </div>
+            </div>
+            <div class="card" onclick="openModal('images/pentesting.webp')">
+                <img src="images/pentesting.webp" alt="">
+                <div class="cb">
+                    <h3>Pentesting Certificate</h3>
+                    <span class="tag red">Cyber Security</span>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- ===== CONTACT ===== -->
     <section id="contact" class="reveal">
         <h2 class="st">Mari Terhubung</h2>
         <div class="section-divider"></div>
@@ -1151,7 +1236,7 @@
             if (e.target === this) closeModal();
         });
 
-        // Typing Animation Logic
+        // Typing Animation
         const typedText = document.getElementById('typed');
         const roles = ['M. Ainun Nadjib', 'Junior Web Dev', 'Python Developer', 'Cyber Security Enthusiast'];
         let roleIndex = 0;
@@ -1172,7 +1257,7 @@
 
             if (!isDeleting && charIndex === currentRole.length) {
                 isDeleting = true;
-                typeSpeed = 2000; // Pause at end
+                typeSpeed = 2000;
             } else if (isDeleting && charIndex === 0) {
                 isDeleting = false;
                 roleIndex = (roleIndex + 1) % roles.length;
@@ -1182,7 +1267,7 @@
             setTimeout(type, typeSpeed);
         }
 
-        // Scroll Reveal Logic
+        // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
@@ -1218,23 +1303,6 @@
             }, { passive: true });
         }
 
-        // Interactive 3D tilt on cards
-        document.querySelectorAll('.card').forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-                const midX = rect.width / 2;
-                const midY = rect.height / 2;
-                const rotateX = ((y - midY) / midY) * -5;
-                const rotateY = ((x - midX) / midX) * 5;
-                card.style.transform = `translateY(-8px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-            });
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = '';
-            });
-        });
-
         // Active nav link on scroll
         const sections = document.querySelectorAll('section[id]');
         const navLinks = document.querySelectorAll('nav a');
@@ -1252,6 +1320,32 @@
 
         // Start Typing
         document.addEventListener('DOMContentLoaded', type);
+
+        // Video Thumbnail Generator
+        document.querySelectorAll('.thumbnail-container img').forEach(img => {
+            if (img.src.endsWith('.mp4')) {
+                const video = document.createElement('video');
+                video.preload = 'auto';
+                video.muted = true;
+                video.playsInline = true;
+                video.src = img.src;
+                video.onloadeddata = () => {
+                    video.currentTime = 0.5;
+                };
+                video.onseeked = () => {
+                    const canvas = document.createElement('canvas');
+                    canvas.width = video.videoWidth;
+                    canvas.height = video.videoHeight;
+                    canvas.getContext('2d').drawImage(video, 0, 0);
+                    img.src = canvas.toDataURL('image/jpeg', 0.8);
+                    video.src = '';
+                };
+                video.onerror = () => {
+                    img.style.background = '#1A1A1A';
+                    img.alt = 'Video';
+                };
+            }
+        });
     </script>
 </body>
 
