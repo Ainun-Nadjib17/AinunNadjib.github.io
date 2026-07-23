@@ -5,27 +5,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>M. Ainun Nadjib</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         :root {
-            --bg: #FFF7F3;
-            --text: #1A1A1A;
+            --primary: #ff6b2c;
+            --secondary: #6b46e5;
+            --surface: #fcf9f8;
+            --text: #1a1a1a;
             --text-secondary: #777777;
             --white: #FFFFFF;
-            --black: #1A1A1A;
-            --red: #E5484D;
-            --yellow: #FFD54A;
-            --green: #A8E063;
-            --blue: #7CC7F8;
-            --purple: #C9B6FF;
-            --border: 3px solid #1A1A1A;
-            --shadow: 6px 6px 0px #1A1A1A;
-            --shadow-hover: 3px 3px 0px #1A1A1A;
-            --shadow-active: 0px 0px 0px #1A1A1A;
-            --radius: 16px;
-            --radius-sm: 12px;
+            --border: 1px solid rgba(26, 26, 26, 0.1);
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.12);
+            --radius: 8px;
+            --radius-lg: 16px;
         }
 
         * {
@@ -39,8 +34,8 @@
         }
 
         body {
-            font-family: 'Outfit', sans-serif;
-            background-color: var(--bg);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--surface);
             color: var(--text);
             line-height: 1.6;
             overflow-x: hidden;
@@ -49,8 +44,8 @@
         h1,
         h2,
         h3 {
-            font-family: 'Outfit', sans-serif;
-            font-weight: 800;
+            font-family: 'Syne', sans-serif;
+            font-weight: 700;
         }
 
         /* ===== HEADER ===== */
@@ -62,7 +57,8 @@
             width: auto;
             max-width: 700px;
             padding: 10px 14px 10px 24px;
-            background: var(--white);
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             border: var(--border);
             border-radius: 60px;
             z-index: 1000;
@@ -74,7 +70,7 @@
         }
 
         .logo {
-            font-family: 'Outfit', sans-serif;
+            font-family: 'Syne', sans-serif;
             font-size: 1.1rem;
             font-weight: 800;
             color: var(--text);
@@ -84,11 +80,10 @@
         }
 
         .logo span {
-            background: var(--red);
+            background: var(--primary);
             color: var(--white);
             padding: 2px 10px;
-            border-radius: 8px;
-            border: var(--border);
+            border-radius: 6px;
             font-size: 0.85rem;
             margin-left: 4px;
         }
@@ -113,8 +108,8 @@
 
         nav a:hover,
         nav a.active {
-            background: var(--yellow);
-            border: 2px solid var(--black);
+            background: var(--primary);
+            color: var(--white);
         }
 
         @media (max-width: 1024px) {
@@ -263,7 +258,7 @@
                 padding: 10px;
             }
             .modal img, .modal video {
-                border-radius: var(--radius-sm);
+                border-radius: var(--radius);
             }
             footer .footer-links {
                 flex-direction: column;
@@ -346,22 +341,21 @@
         }
 
         .ht h1 span {
-            color: var(--red);
+            color: var(--primary);
         }
 
         .sub {
             font-size: 0.9rem;
             font-weight: 700;
-            color: var(--text);
+            color: var(--white);
             margin: 0 0 1.5rem;
             display: inline-block;
-            padding: 6px 16px;
-            background: var(--yellow);
+            padding: 8px 20px;
+            background: var(--secondary);
             border-radius: 50px;
-            border: var(--border);
             letter-spacing: 1px;
             text-transform: uppercase;
-            box-shadow: 4px 4px 0px var(--black);
+            box-shadow: var(--shadow);
         }
 
         @media (max-width: 768px) {
@@ -395,21 +389,21 @@
             height: 48px;
             background: var(--white);
             border: var(--border);
-            border-radius: 14px;
+            border-radius: var(--radius);
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text);
             font-size: 1.15rem;
             transition: all 0.2s ease;
-            box-shadow: 4px 4px 0px var(--black);
+            box-shadow: var(--shadow);
         }
 
         .socials a:hover {
-            background: var(--red);
+            background: var(--primary);
             color: var(--white);
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0px var(--black);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
         }
 
         .hp {
@@ -421,11 +415,10 @@
         .pf {
             width: clamp(280px, 50vw, 380px);
             height: clamp(280px, 50vw, 380px);
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             padding: 8px;
-            background: var(--purple);
-            box-shadow: var(--shadow);
-            border: var(--border);
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            box-shadow: var(--shadow-hover);
             position: relative;
         }
 
@@ -441,14 +434,13 @@
             position: absolute;
             bottom: -12px;
             right: 20px;
-            background: var(--green);
-            color: var(--black);
+            background: var(--primary);
+            color: var(--white);
             padding: 8px 22px;
             border-radius: 50px;
             font-weight: 700;
             font-size: 0.85rem;
-            box-shadow: 4px 4px 0px var(--black);
-            border: var(--border);
+            box-shadow: var(--shadow);
             letter-spacing: 0.5px;
         }
 
@@ -474,11 +466,10 @@
 
         .section-divider {
             width: 60px;
-            height: 6px;
-            background: var(--red);
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             margin: 0 auto 3rem;
-            border-radius: 3px;
-            border: 2px solid var(--black);
+            border-radius: 2px;
         }
 
         .grid {
@@ -499,33 +490,30 @@
         /* ===== CARDS ===== */
         .card {
             background: var(--white);
-            border-radius: var(--radius);
+            border-radius: var(--radius-lg);
             overflow: hidden;
             border: var(--border);
-            transition: all 0.2s ease;
+            transition: all 0.3s ease;
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            aspect-ratio: 1 / 1;
             box-shadow: var(--shadow);
         }
 
         .card:hover {
-            transform: translate(3px, 3px);
+            transform: translateY(-4px);
             box-shadow: var(--shadow-hover);
-        }
-
-        .card:active {
-            transform: translate(6px, 6px);
-            box-shadow: var(--shadow-active);
         }
 
         .card img,
         .thumbnail-container img {
             width: 100%;
-            height: 70%;
+            height: 100%;
             object-fit: cover;
             transition: transform 0.3s ease;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
 
         .card:hover img {
@@ -564,8 +552,8 @@
         }
 
         .tag {
-            background: var(--yellow);
-            color: var(--text);
+            background: var(--primary);
+            color: var(--white);
             padding: 4px 12px;
             border-radius: 50px;
             font-size: 0.7rem;
@@ -574,18 +562,184 @@
             align-items: center;
             align-self: flex-start;
             letter-spacing: 0.3px;
-            border: 2px solid var(--black);
         }
 
-        .tag.green { background: var(--green); }
-        .tag.blue { background: var(--blue); }
-        .tag.purple { background: var(--purple); }
-        .tag.red { background: var(--red); color: var(--white); }
+        .tag.green { background: #22c55e; }
+        .tag.blue { background: #3b82f6; }
+        .tag.purple { background: var(--secondary); }
+        .tag.red { background: #ef4444; }
+        .tag.yellow { background: #eab308; color: var(--text); }
+
+        /* ===== DETAIL BUTTON ===== */
+        .detail-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 10px;
+            padding: 6px 14px;
+            background: var(--primary);
+            color: var(--white);
+            border: none;
+            border-radius: 50px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 8px rgba(255, 107, 44, 0.3);
+            letter-spacing: 0.3px;
+            align-self: flex-start;
+            z-index: 10;
+            position: relative;
+        }
+        .detail-btn:hover {
+            background: var(--secondary);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(107, 70, 229, 0.35);
+        }
+        .detail-btn i {
+            font-size: 0.65rem;
+        }
+
+        /* ===== DETAIL MODAL ===== */
+        .detail-modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 10000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        .detail-modal-overlay.active {
+            display: flex;
+            opacity: 1;
+        }
+        .detail-modal {
+            background: var(--white);
+            border-radius: var(--radius-lg);
+            max-width: 600px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3);
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        .detail-modal-overlay.active .detail-modal {
+            transform: scale(1) translateY(0);
+        }
+        .detail-modal-header {
+            padding: 28px 28px 0;
+            position: relative;
+        }
+        .detail-modal-header h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--text);
+            padding-right: 40px;
+            line-height: 1.3;
+        }
+        .detail-modal-close {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 36px;
+            height: 36px;
+            background: var(--surface);
+            border: var(--border);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-size: 14px;
+        }
+        .detail-modal-close:hover {
+            background: var(--primary);
+            color: var(--white);
+            border-color: var(--primary);
+        }
+        .detail-modal-body {
+            padding: 20px 28px 28px;
+        }
+        .detail-modal-body .detail-tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 16px;
+        }
+        .detail-modal-body .detail-tag {
+            padding: 5px 14px;
+            border-radius: 50px;
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+        .detail-modal-body p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 12px;
+        }
+        .detail-modal-body .detail-section-title {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 6px;
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .detail-modal-body .detail-section-title i {
+            color: var(--primary);
+            font-size: 0.8rem;
+        }
+        .detail-modal-body ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .detail-modal-body ul li {
+            font-size: 0.88rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 4px;
+        }
+        .detail-modal-body ul li strong {
+            color: var(--text);
+        }
+        @media (max-width: 640px) {
+            .detail-modal {
+                max-height: 90vh;
+                margin: 10px;
+            }
+            .detail-modal-header { padding: 20px 20px 0; }
+            .detail-modal-body { padding: 16px 20px 24px; }
+            .detail-modal-header h3 { font-size: 1.1rem; }
+        }
 
         /* ===== MODAL & VIDEOS ===== */
         .thumbnail-container {
             position: relative;
             overflow: hidden;
+            background: #f0f0f0;
+            aspect-ratio: 16 / 10;
+            flex-shrink: 0;
+        }
+
+        .thumbnail-container img[src$='.mp4'],
+        .thumbnail-container img[src$='.mp4'].loaded {
+            opacity: 1;
+        }
+
+        .thumbnail-container img[src$='.mp4']:not(.loaded) {
+            opacity: 0;
         }
 
         .play-button {
@@ -593,23 +747,50 @@
             top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 52px;
-            height: 52px;
-            background: var(--red);
-            border: var(--border);
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            border: 3px solid var(--white);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--white);
-            font-size: 16px;
-            transition: all 0.2s ease;
-            box-shadow: 4px 4px 0px var(--black);
+            font-size: 18px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(255, 107, 44, 0.4);
             z-index: 5;
         }
 
+        .play-button i {
+            margin-left: 3px;
+        }
+
         .card:hover .play-button {
-            transform: translate(-50%, -50%) scale(1.1);
+            transform: translate(-50%, -50%) scale(1.15);
+            box-shadow: 0 6px 30px rgba(255, 107, 44, 0.6);
+        }
+
+        .video-badge {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            z-index: 6;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .video-badge i {
+            font-size: 0.7rem;
         }
 
         .modal {
@@ -645,9 +826,8 @@
         .modal img,
         .modal video {
             width: 100%;
-            border-radius: var(--radius);
-            border: var(--border);
-            box-shadow: var(--shadow);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-hover);
             max-height: 85vh;
             object-fit: contain;
             background: #000;
@@ -659,8 +839,8 @@
             right: 0;
             width: 40px;
             height: 40px;
-            background: var(--red);
-            border: var(--border);
+            background: var(--primary);
+            border: none;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -668,13 +848,13 @@
             color: var(--white);
             cursor: pointer;
             transition: all 0.2s ease;
-            box-shadow: 3px 3px 0px var(--black);
+            box-shadow: var(--shadow);
             font-size: 16px;
         }
 
         .close:hover {
-            transform: translate(3px, 3px);
-            box-shadow: 0px 0px 0px var(--black);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
         }
 
         /* ===== ABOUT SECTION ===== */
@@ -716,23 +896,23 @@
             font-weight: 600;
             color: var(--text);
             transition: all 0.2s ease;
-            box-shadow: 3px 3px 0px var(--black);
+            box-shadow: var(--shadow);
         }
 
         .skill-chip i {
             font-size: 1rem;
-            color: var(--red);
+            color: var(--primary);
         }
 
         .skill-chip:hover {
-            transform: translate(2px, 2px);
-            box-shadow: 1px 1px 0px var(--black);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
         }
 
-        .skill-chip:nth-child(odd) { background: var(--yellow); }
-        .skill-chip:nth-child(even) { background: var(--blue); }
-        .skill-chip:nth-child(3n) { background: var(--green); }
-        .skill-chip:nth-child(5n) { background: var(--purple); }
+        .skill-chip:nth-child(odd) { background: linear-gradient(135deg, #fff5f5, #fff); }
+        .skill-chip:nth-child(even) { background: linear-gradient(135deg, #f5f0ff, #fff); }
+        .skill-chip:nth-child(3n) { background: linear-gradient(135deg, #f0fff4, #fff); }
+        .skill-chip:nth-child(5n) { background: linear-gradient(135deg, #fffbeb, #fff); }
 
         /* ===== CONTACT SECTION ===== */
         #contact {
@@ -766,29 +946,29 @@
             padding: 14px 28px;
             background: var(--white);
             border: var(--border);
-            border-radius: var(--radius-sm);
+            border-radius: var(--radius);
             color: var(--text);
             text-decoration: none;
             font-size: 0.95rem;
             font-weight: 700;
             transition: all 0.2s ease;
-            box-shadow: 4px 4px 0px var(--black);
+            box-shadow: var(--shadow);
         }
 
         .contact-btn i {
             font-size: 1.1rem;
-            color: var(--red);
+            color: var(--primary);
         }
 
         .contact-btn:hover {
-            transform: translate(4px, 4px);
-            box-shadow: 0px 0px 0px var(--black);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-hover);
         }
 
         .contact-btn.primary {
-            background: var(--red);
+            background: var(--primary);
             color: var(--white);
-            border: var(--border);
+            border: none;
         }
 
         .contact-btn.primary i {
@@ -824,17 +1004,16 @@
         }
 
         footer .footer-links a:hover {
-            background: var(--yellow);
-            border: 2px solid var(--black);
+            background: var(--primary);
+            color: var(--white);
         }
 
         footer .footer-line {
             width: 60px;
             height: 4px;
-            background: var(--red);
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
             margin: 1.5rem auto;
             border-radius: 2px;
-            border: 2px solid var(--black);
         }
 
         footer p {
@@ -940,7 +1119,7 @@
     <section id="home" class="hero">
         <div class="hc">
             <div class="ht">
-                <h1>Halo, Saya<br><span id="typed"></span></h1>
+                <h1>Halo, Saya<br>M. Ainun Nadjib</h1>
                 <div class="sub">Junior Web Dev</div>
                 <p>Junior Web Developer yang antusias membangun website dan aplikasi web menggunakan Python, Laravel,
                     dan Flutter.</p>
@@ -1007,6 +1186,7 @@
                     <h3>Object Detection System</h3>
                     <p>Deteksi objek real-time dengan YOLOv8n + OpenCV</p>
                     <span class="tag">Python</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(0)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1014,12 +1194,14 @@
             <div class="card" onclick="openModal('images/Absen_barcode.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/Absen_Barcode.mp4" alt="Absen Barcode">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Absen Barcode</h3>
                     <p>Absen Pekerja menggunakan barcode</p>
                     <span class="tag purple">Django</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(1)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1032,6 +1214,7 @@
                     <h3>Mobile Library App</h3>
                     <p>Aplikasi peminjaman buku Flutter + Flask API</p>
                     <span class="tag blue">Flutter</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(2)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1044,6 +1227,7 @@
                     <h3>Catat Menabung Digital</h3>
                     <p>Website pencatatan tabungan dan keuangan</p>
                     <span class="tag green">HTML/CSS/JS + Supabase</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(3)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1051,12 +1235,14 @@
             <div class="card" onclick="openModal('images/pengamanan_barang.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/pengamanan_barang.mp4" alt="Smart Theft Detection">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Smart Theft Detection</h3>
                     <p>Sistem deteksi pencurian berbasis Computer Vision</p>
                     <span class="tag">Python</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(4)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1064,12 +1250,14 @@
             <div class="card" onclick="openModal('images/detek_target.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/detek.mp4" alt="Targeted Object Detection">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Targeted Object Detection</h3>
                     <p>Deteksi objek spesifik sesuai target</p>
                     <span class="tag red">Python</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(5)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1077,12 +1265,14 @@
             <div class="card" onclick="openModal('images/deteksi_tumor_otak.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/deteksi_tumor_otak.mp4" alt="Brain Tumor Detection">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Brain Tumor Detection</h3>
                     <p>Klasifikasi MRI menggunakan MobileNetV2</p>
                     <span class="tag blue">TensorFlow</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(6)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1090,12 +1280,14 @@
             <div class="card" onclick="openModal('images/deteksi_roast_beans.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/deteksi_roast_beans.mp4" alt="Coffee Roast Classification">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Coffee Roast Classification</h3>
                     <p>Klasifikasi tingkat roasting biji kopi</p>
                     <span class="tag green">TensorFlow</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(7)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1103,12 +1295,14 @@
             <div class="card" onclick="openModal('images/isyarat.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/isyarat.mp4" alt="Gesture Detection">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Gesture Detection</h3>
                     <p>Bahasa isyarat real-time</p>
                     <span class="tag purple">Mediapipe</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(8)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1116,12 +1310,14 @@
             <div class="card" onclick="openModal('images/Inventaris.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/Inventaris.mp4" alt="Peminjaman Alat Komputer">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Peminjaman Alat Komputer</h3>
                     <p>Peminjaman Alat Komputer Berbasis Web</p>
                     <span class="tag purple">Django</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(9)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1129,12 +1325,14 @@
             <div class="card" onclick="openModal('images/Rt_Rw.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/Rt_Rw.mp4" alt="RT/RW Management System">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>RT/RW Management System</h3>
                     <p>Sistem manajemen data RT/RW berbasis web</p>
                     <span class="tag">Web App</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(10)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
 
@@ -1142,12 +1340,14 @@
             <div class="card" onclick="openModal('images/deteksi_penyakit_daun_tomat.mp4')">
                 <div class="thumbnail-container">
                     <img src="images/deteksi_penyakit_daun_tomat.mp4" alt="Deteksi Penyakit Daun Tomat">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>Deteksi Penyakit Daun Tomat</h3>
                     <p>Deteksi penyakit pada daun tomat menggunakan Deep Learning</p>
                     <span class="tag green">TensorFlow</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(11)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
         </div>
@@ -1329,6 +1529,21 @@
         </div>
     </div>
 
+    <!-- DETAIL MODAL -->
+    <div class="detail-modal-overlay" id="detailModal">
+        <div class="detail-modal">
+            <div class="detail-modal-header">
+                <button class="detail-modal-close" onclick="closeDetail()"><i class="fas fa-times"></i></button>
+                <h3 id="detail-title"></h3>
+            </div>
+            <div class="detail-modal-body">
+                <div class="detail-tag-row" id="detail-tags"></div>
+                <p id="detail-desc"></p>
+                <div id="detail-extras"></div>
+            </div>
+        </div>
+    </div>
+
     <script>
         function openModal(src) {
             const modal = document.getElementById('modal');
@@ -1363,37 +1578,6 @@
             if (e.target === this) closeModal();
         });
 
-        // Typing Animation
-        const typedText = document.getElementById('typed');
-        const roles = ['M. Ainun Nadjib', 'Junior Web Dev', 'Python Developer', 'Cyber Security Enthusiast'];
-        let roleIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentRole = roles[roleIndex];
-            if (isDeleting) {
-                typedText.textContent = currentRole.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typedText.textContent = currentRole.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 50 : 100;
-
-            if (!isDeleting && charIndex === currentRole.length) {
-                isDeleting = true;
-                typeSpeed = 2000;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                roleIndex = (roleIndex + 1) % roles.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(type, typeSpeed);
-        }
-
         // Scroll Reveal
         const revealElements = document.querySelectorAll('.reveal');
         const revealObserver = new IntersectionObserver((entries) => {
@@ -1416,9 +1600,12 @@
         }, { threshold: 0.15 });
         grids.forEach(g => gridObserver.observe(g));
 
-        // Keyboard close modal
+        // Keyboard close both modals
         document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') closeModal();
+            if (e.key === 'Escape') {
+                closeModal();
+                closeDetail();
+            }
         });
 
         // Hide scroll hint on scroll
@@ -1445,34 +1632,301 @@
             });
         }, { passive: true });
 
-        // Start Typing
-        document.addEventListener('DOMContentLoaded', type);
 
-        // Video Thumbnail Generator
-        document.querySelectorAll('.thumbnail-container img').forEach(img => {
-            if (img.src.endsWith('.mp4')) {
-                const video = document.createElement('video');
-                video.preload = 'auto';
-                video.muted = true;
-                video.playsInline = true;
-                video.src = img.src;
-                video.onloadeddata = () => {
-                    video.currentTime = 0.5;
-                };
-                video.onseeked = () => {
+
+        // Video Thumbnail Generator with better fallback
+        document.querySelectorAll('.thumbnail-container').forEach(container => {
+            const img = container.querySelector('img[src$=".mp4"]');
+            if (!img) return;
+
+            const videoSrc = img.src;
+            const video = document.createElement('video');
+            video.preload = 'metadata';
+            video.muted = true;
+            video.playsInline = true;
+            video.crossOrigin = 'anonymous';
+            
+            // Add loading state
+            container.style.background = 'linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%)';
+            
+            video.onloadeddata = () => {
+                video.currentTime = 0.3;
+            };
+            
+            video.onseeked = () => {
+                try {
                     const canvas = document.createElement('canvas');
-                    canvas.width = video.videoWidth;
-                    canvas.height = video.videoHeight;
-                    canvas.getContext('2d').drawImage(video, 0, 0);
-                    img.src = canvas.toDataURL('image/jpeg', 0.8);
-                    video.src = '';
-                };
-                video.onerror = () => {
-                    img.style.background = '#1A1A1A';
-                    img.alt = 'Video';
-                };
-            }
+                    canvas.width = video.videoWidth || 640;
+                    canvas.height = video.videoHeight || 480;
+                    const ctx = canvas.getContext('2d');
+                    ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+                    img.src = canvas.toDataURL('image/jpeg', 0.85);
+                    img.classList.add('loaded');
+                    container.style.background = '';
+                } catch (e) {
+                    console.log('Thumbnail generation failed:', e);
+                    createFallbackThumbnail(container);
+                }
+                video.src = '';
+            };
+            
+            video.onerror = () => {
+                console.log('Video load failed:', videoSrc);
+                createFallbackThumbnail(container);
+            };
+            
+            // Set timeout for slow loading
+            setTimeout(() => {
+                if (video.readyState < 2) {
+                    createFallbackThumbnail(container);
+                }
+            }, 5000);
+            
+            video.src = videoSrc;
         });
+
+        function createFallbackThumbnail(container) {
+            const img = container.querySelector('img[src$=".mp4"]');
+            if (img) img.style.display = 'none';
+            container.style.background = 'linear-gradient(135deg, var(--secondary) 0%, var(--primary) 100%)';
+            
+            if (!container.querySelector('.fallback-icon')) {
+                const icon = document.createElement('div');
+                icon.className = 'fallback-icon';
+                icon.style.cssText = 'position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); z-index: 2;';
+                icon.innerHTML = '<i class="fas fa-play-circle" style="font-size: 48px; color: rgba(255,255,255,0.9);"></i>';
+                container.appendChild(icon);
+            }
+        }
+
+        /* ===== PROJECT DETAIL MODAL ===== */
+        const projectDetails = [
+            {
+                title: 'Object Detection System',
+                tags: [
+                    { text: 'Python', color: '#ff6b2c' },
+                    { text: 'YOLOv8', color: '#6b46e5' },
+                    { text: 'OpenCV', color: '#22c55e' }
+                ],
+                desc: 'Sistem deteksi objek real-time yang mampu mengenali dan melabeli berbagai objek dalam video stream atau gambar secara langsung. Menggunakan arsitektur YOLOv8n (You Only Look Once) yang ringan namun akurat, dipadukan dengan OpenCV untuk pemrosesan frame.',
+                features: [
+                    'Deteksi multi-objek secara real-time',
+                    'Bounding box otomatis dengan label confidence score',
+                    'Optimasi untuk kecepatan inference tinggi',
+                    'Dapat diintegrasikan ke CCTV atau webcam'
+                ],
+                tech: 'YOLOv8n, OpenCV, Python, CUDA (opsional)'
+            },
+            {
+                title: 'Absen Barcode',
+                tags: [
+                    { text: 'Django', color: '#6b46e5' },
+                    { text: 'Python', color: '#ff6b2c' },
+                    { text: 'Barcode', color: '#22c55e' }
+                ],
+                desc: 'Sistem absensi pekerja berbasis barcode yang memudahkan pencatatan kehadiran secara digital. Pekerja cukup memindai barcode unik untuk melakukan absen masuk dan keluar, sehingga prosesnya cepat dan akurat.',
+                features: [
+                    'Scan barcode untuk absen masuk/keluar',
+                    'Dashboard admin untuk melihat laporan kehadiran',
+                    'Export data kehadiran ke Excel/CSV',
+                    'Validasi waktu absensi otomatis'
+                ],
+                tech: 'Django, Python, HTML/CSS, JavaScript'
+            },
+            {
+                title: 'Mobile Library App',
+                tags: [
+                    { text: 'Flutter', color: '#3b82f6' },
+                    { text: 'Flask', color: '#ff6b2c' },
+                    { text: 'REST API', color: '#6b46e5' }
+                ],
+                desc: 'Aplikasi mobile untuk peminjaman buku perpustakaan yang dibangun dengan Flutter untuk UI dan Flask sebagai backend API. Pengguna bisa mencari, meminjam, dan mengembalikan buku langsung dari smartphone.',
+                features: [
+                    'Katalog buku dengan pencarian dan filter',
+                    'Sistem peminjaman dan pengembalian buku',
+                    'Notifikasi jatuh tempo pengembalian',
+                    'Cross-platform (Android & iOS)'
+                ],
+                tech: 'Flutter, Dart, Flask, Python, SQLite'
+            },
+            {
+                title: 'Catat Menabung Digital',
+                tags: [
+                    { text: 'HTML/CSS/JS', color: '#22c55e' },
+                    { text: 'Supabase', color: '#6b46e5' }
+                ],
+                desc: 'Website pencatatan tabungan dan keuangan pribadi yang modern dan responsif. Menggunakan Supabase sebagai backend real-time untuk menyimpan dan sinkronisasi data tabungan pengguna.',
+                features: [
+                    'Pencatatan tabungan harian/mingguan/bulanan',
+                    'Visualisasi grafik perkembangan tabungan',
+                    'Target tabungan dengan progress tracker',
+                    'Real-time sync dengan Supabase'
+                ],
+                tech: 'HTML, CSS, JavaScript, Supabase'
+            },
+            {
+                title: 'Smart Theft Detection',
+                tags: [
+                    { text: 'Python', color: '#ff6b2c' },
+                    { text: 'Computer Vision', color: '#6b46e5' }
+                ],
+                desc: 'Sistem deteksi pencurian berbasis Computer Vision yang dapat memantau area secara otomatis dan mengenali aktivitas mencurigakan. Sistem akan mengirimkan notifikasi/alert jika terdeteksi potensi pencurian.',
+                features: [
+                    'Monitoring area real-time via kamera',
+                    'Deteksi gerakan mencurigakan otomatis',
+                    'Sistem alert/notifikasi otomatis',
+                    'Rekaman event untuk bukti'
+                ],
+                tech: 'Python, OpenCV, YOLOv8, NumPy'
+            },
+            {
+                title: 'Targeted Object Detection',
+                tags: [
+                    { text: 'Python', color: '#ff6b2c' },
+                    { text: 'YOLO', color: '#6b46e5' }
+                ],
+                desc: 'Sistem deteksi objek spesifik yang hanya mengenali target tertentu sesuai kebutuhan pengguna. Berbeda dengan deteksi general, sistem ini dioptimasi untuk akurasi tinggi pada kategori objek yang sudah ditentukan.',
+                features: [
+                    'Deteksi objek spesifik dengan akurasi tinggi',
+                    'Custom training untuk target tertentu',
+                    'Visualisasi bounding box dan label',
+                    'Eksport hasil deteksi'
+                ],
+                tech: 'Python, YOLOv8, OpenCV, Roboflow'
+            },
+            {
+                title: 'Brain Tumor Detection',
+                tags: [
+                    { text: 'TensorFlow', color: '#3b82f6' },
+                    { text: 'Deep Learning', color: '#6b46e5' },
+                    { text: 'MobileNetV2', color: '#ff6b2c' }
+                ],
+                desc: 'Sistem klasifikasi citra MRI otak untuk mendeteksi keberadaan tumor menggunakan Transfer Learning dengan arsitektur MobileNetV2. Model mampu membedakan antara citra MRI yang mengandung tumor dan yang tidak.',
+                features: [
+                    'Klasifikasi MRI otak (tumor vs normal)',
+                    'Transfer Learning dengan MobileNetV2',
+                    'Akurasi tinggi pada dataset medis',
+                    'Visualisasi heatmap untuk interpretasi model'
+                ],
+                tech: 'Python, TensorFlow, Keras, Matplotlib, NumPy'
+            },
+            {
+                title: 'Coffee Roast Classification',
+                tags: [
+                    { text: 'TensorFlow', color: '#22c55e' },
+                    { text: 'Deep Learning', color: '#6b46e5' }
+                ],
+                desc: 'Sistem klasifikasi tingkat roasting biji kopi menggunakan Deep Learning. Model dapat membedakan level roasting (light, medium, dark) dari foto biji kopi untuk membantu proses Quality Control.',
+                features: [
+                    'Klasifikasi level roasting: light, medium, dark',
+                    'Augmentasi data untuk akurasi lebih baik',
+                    'Model ringan untuk edge deployment',
+                    'Web interface untuk upload & prediksi'
+                ],
+                tech: 'Python, TensorFlow, Keras, Pillow, Flask'
+            },
+            {
+                title: 'Gesture Detection',
+                tags: [
+                    { text: 'Mediapipe', color: '#6b46e5' },
+                    { text: 'Python', color: '#ff6b2c' }
+                ],
+                desc: 'Sistem pengenalan bahasa isyarat real-time yang menggunakan MediaPipe Hands untuk mendeteksi gestur tangan dan mengubahnya menjadi teks atau perintah. Dapat digunakan untuk komunikasi aksesibel.',
+                features: [
+                    'Deteksi landmark tangan real-time',
+                    'Pengenalan beberapa gestur bahasa isyarat',
+                    'Konversi gestur ke teks/karakter',
+                    'Latency rendah untuk responsif'
+                ],
+                tech: 'Python, MediaPipe, OpenCV, NumPy'
+            },
+            {
+                title: 'Peminjaman Alat Komputer',
+                tags: [
+                    { text: 'Django', color: '#6b46e5' },
+                    { text: 'Web App', color: '#ff6b2c' }
+                ],
+                desc: 'Sistem manajemen inventaris dan peminjaman perangkat komputer berbasis web. Memudahkan admin sekolah/lab dalam memantau siapa yang meminjam alat, kembali, serta status ketersediaan.',
+                features: [
+                    'Daftar inventaris perangkat komputer',
+                    'Form peminjaman & pengembalian online',
+                    'Status ketersediaan real-time',
+                    'Laporan riwayat peminjaman'
+                ],
+                tech: 'Django, Python, HTML/CSS, SQLite'
+            },
+            {
+                title: 'RT/RW Management System',
+                tags: [
+                    { text: 'Web App', color: '#ff6b2c' },
+                    { text: 'Python', color: '#6b46e5' }
+                ],
+                desc: 'Sistem informasi manajemen data RT/RW berbasis web untuk memudahkan pengelolaan data warga, surat-menyurat, iuran, dan administrasi lingkungan secara digital.',
+                features: [
+                    'Database warga terstruktur per RT/RW',
+                    'Pengelolaan surat-menyurat online',
+                    'Tracking iuran warga',
+                    'Dashboard statistik untuk ketua RT/RW'
+                ],
+                tech: 'Python, Django/Flask, HTML/CSS/JS, SQLite/PostgreSQL'
+            },
+            {
+                title: 'Deteksi Penyakit Daun Tomat',
+                tags: [
+                    { text: 'TensorFlow', color: '#22c55e' },
+                    { text: 'Deep Learning', color: '#6b46e5' }
+                ],
+                desc: 'Sistem deteksi penyakit pada daun tomat menggunakan Deep Learning. Model mampu mengklasifikasikan berbagai jenis penyakit (bacterial spot, early blight, late blight, dll) dari foto daun tomat.',
+                features: [
+                    'Klasifikasi multi-kelas penyakit daun tomat',
+                    'Augmentasi data untuk generalisasi lebih baik',
+                    'Visualisasi confusion matrix & akurasi',
+                    'Potensi integrasi ke aplikasi mobile petani'
+                ],
+                tech: 'Python, TensorFlow, Keras, OpenCV, Matplotlib'
+            }
+        ];
+
+        function openDetail(index) {
+            const overlay = document.getElementById('detailModal');
+            const project = projectDetails[index];
+            if (!project) return;
+
+            document.getElementById('detail-title').textContent = project.title;
+            document.getElementById('detail-desc').textContent = project.desc;
+
+            // Tags
+            const tagRow = document.getElementById('detail-tags');
+            tagRow.innerHTML = project.tags.map(t => 
+                `<span class="detail-tag" style="background:${t.color}">${t.text}</span>`
+            ).join('');
+
+            // Extras
+            let extrasHTML = '';
+            if (project.features) {
+                extrasHTML += `<div class="detail-section-title"><i class="fas fa-star"></i> Fitur Utama</div>`;
+                extrasHTML += `<ul>${project.features.map(f => `<li>${f}</li>`).join('')}</ul>`;
+            }
+            if (project.tech) {
+                extrasHTML += `<div class="detail-section-title"><i class="fas fa-code"></i> Tech Stack</div>`;
+                extrasHTML += `<p>${project.tech}</p>`;
+            }
+            document.getElementById('detail-extras').innerHTML = extrasHTML;
+
+            overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeDetail() {
+            document.getElementById('detailModal').classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close detail modal on overlay click
+        document.getElementById('detailModal').addEventListener('click', function(e) {
+            if (e.target === this) closeDetail();
+        });
+
     </script>
 </body>
 
