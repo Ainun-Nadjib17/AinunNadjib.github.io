@@ -154,16 +154,16 @@
                 gap: 16px;
             }
             .card img, .thumbnail-container img {
-                height: 160px;
+                height: 65%;
             }
             .cb {
-                padding: 16px 18px;
+                padding: 12px 14px;
             }
             .cb h3 {
-                font-size: 1rem;
+                font-size: 0.85rem;
             }
             .cb p {
-                font-size: 0.85rem;
+                font-size: 0.75rem;
             }
             .contact-btn {
                 padding: 12px 20px;
@@ -219,11 +219,26 @@
                 font-size: 1rem;
             }
             .grid {
-                grid-template-columns: 1fr;
-                gap: 14px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
             .card img, .thumbnail-container img {
-                height: 180px;
+                height: 55%;
+            }
+            .cb {
+                padding: 10px 12px;
+            }
+            .cb h3 {
+                font-size: 0.78rem;
+                margin-bottom: 2px;
+            }
+            .cb p {
+                font-size: 0.68rem;
+                margin-bottom: 6px;
+            }
+            .tag {
+                font-size: 0.6rem;
+                padding: 3px 8px;
             }
             .section-divider {
                 margin-bottom: 2rem;
@@ -254,6 +269,11 @@
                 flex-direction: column;
                 gap: 0.5rem;
             }
+            .play-button {
+                width: 40px;
+                height: 40px;
+                font-size: 12px;
+            }
         }
 
         @media (max-width: 360px) {
@@ -267,6 +287,26 @@
             .sub {
                 font-size: 0.75rem;
                 padding: 5px 12px;
+            }
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            .card img, .thumbnail-container img {
+                height: 55%;
+            }
+            .cb {
+                padding: 8px 10px;
+            }
+            .cb h3 {
+                font-size: 0.72rem;
+            }
+            .cb p {
+                font-size: 0.62rem;
+            }
+            .tag {
+                font-size: 0.55rem;
+                padding: 2px 7px;
             }
         }
 
@@ -451,8 +491,8 @@
 
         @media (max-width: 640px) {
             .grid {
-                grid-template-columns: 1fr;
-                gap: 16px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 14px;
             }
         }
 
@@ -466,7 +506,7 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
-            height: 100%;
+            aspect-ratio: 1 / 1;
             box-shadow: var(--shadow);
         }
 
@@ -483,7 +523,7 @@
         .card img,
         .thumbnail-container img {
             width: 100%;
-            height: 180px;
+            height: 70%;
             object-fit: cover;
             transition: transform 0.3s ease;
         }
@@ -493,34 +533,42 @@
         }
 
         .cb {
-            padding: 20px 24px;
+            padding: 16px 20px;
             display: flex;
             flex-direction: column;
             flex-grow: 1;
+            justify-content: space-between;
         }
 
         .cb h3 {
-            font-size: 1.1rem;
-            margin-bottom: 6px;
+            font-size: 0.95rem;
+            margin-bottom: 4px;
             color: var(--text);
             font-weight: 700;
-            line-height: 1.3;
+            line-height: 1.2;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .cb p {
-            font-size: 0.9rem;
+            font-size: 0.8rem;
             color: var(--text-secondary);
-            margin-bottom: 14px;
-            flex-grow: 1;
-            line-height: 1.5;
+            margin-bottom: 8px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .tag {
             background: var(--yellow);
             color: var(--text);
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 50px;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             display: inline-flex;
             align-items: center;
@@ -542,7 +590,7 @@
 
         .play-button {
             position: absolute;
-            top: 50%;
+            top: 35%;
             left: 50%;
             transform: translate(-50%, -50%);
             width: 52px;
@@ -857,6 +905,17 @@
         .grid.animated .card:nth-child(10) { animation-delay: 0.72s; }
         .grid.animated .card:nth-child(11) { animation-delay: 0.8s; }
         .grid.animated .card:nth-child(12) { animation-delay: 0.88s; }
+        .grid.animated .card:nth-child(13) { animation-delay: 0.96s; }
+        .grid.animated .card:nth-child(14) { animation-delay: 1.04s; }
+        .grid.animated .card:nth-child(15) { animation-delay: 1.12s; }
+        .grid.animated .card:nth-child(16) { animation-delay: 1.2s; }
+        .grid.animated .card:nth-child(17) { animation-delay: 1.28s; }
+        .grid.animated .card:nth-child(18) { animation-delay: 1.36s; }
+        .grid.animated .card:nth-child(19) { animation-delay: 1.44s; }
+        .grid.animated .card:nth-child(20) { animation-delay: 1.52s; }
+        .grid.animated .card:nth-child(21) { animation-delay: 1.6s; }
+        .grid.animated .card:nth-child(22) { animation-delay: 1.68s; }
+        .grid.animated .card:nth-child(23) { animation-delay: 1.76s; }
 
         @keyframes card-in {
             to { opacity: 1; transform: translateY(0); }
@@ -939,9 +998,11 @@
         <h2 class="st">Project Saya</h2>
         <div class="section-divider"></div>
         <div class="grid">
-            <!-- Existing projects -->
+            <!-- Object Detection System -->
             <div class="card" onclick="openModal('images/detek.jpeg')">
-                <img src="images/detek.jpeg" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/detek.jpeg" alt="Object Detection System">
+                </div>
                 <div class="cb">
                     <h3>Object Detection System</h3>
                     <p>Deteksi objek real-time dengan YOLOv8n + OpenCV</p>
@@ -949,9 +1010,10 @@
                 </div>
             </div>
 
+            <!-- Absen Barcode -->
             <div class="card" onclick="openModal('images/Absen_barcode.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/Absen_Barcode.mp4" alt="">
+                    <img src="images/Absen_Barcode.mp4" alt="Absen Barcode">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -961,8 +1023,11 @@
                 </div>
             </div>
 
+            <!-- Mobile Library App -->
             <div class="card" onclick="openModal('images/aps.JPG')">
-                <img src="images/aps.JPG" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/aps.JPG" alt="Mobile Library App">
+                </div>
                 <div class="cb">
                     <h3>Mobile Library App</h3>
                     <p>Aplikasi peminjaman buku Flutter + Flask API</p>
@@ -970,8 +1035,11 @@
                 </div>
             </div>
 
+            <!-- Catat Menabung Digital -->
             <div class="card" onclick="openModal('images/tabungku.JPG')">
-                <img src="images/tabungku.JPG" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/tabungku.JPG" alt="Catat Menabung Digital">
+                </div>
                 <div class="cb">
                     <h3>Catat Menabung Digital</h3>
                     <p>Website pencatatan tabungan dan keuangan</p>
@@ -979,9 +1047,10 @@
                 </div>
             </div>
 
+            <!-- Smart Theft Detection -->
             <div class="card" onclick="openModal('images/pengamanan_barang.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/pengamanan_barang.mp4" alt="">
+                    <img src="images/pengamanan_barang.mp4" alt="Smart Theft Detection">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -991,9 +1060,10 @@
                 </div>
             </div>
 
+            <!-- Targeted Object Detection -->
             <div class="card" onclick="openModal('images/detek_target.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/detek.mp4" alt="">
+                    <img src="images/detek.mp4" alt="Targeted Object Detection">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -1003,9 +1073,10 @@
                 </div>
             </div>
 
+            <!-- Brain Tumor Detection -->
             <div class="card" onclick="openModal('images/deteksi_tumor_otak.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/deteksi_tumor_otak.mp4" alt="">
+                    <img src="images/deteksi_tumor_otak.mp4" alt="Brain Tumor Detection">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -1015,9 +1086,10 @@
                 </div>
             </div>
 
+            <!-- Coffee Roast Classification -->
             <div class="card" onclick="openModal('images/deteksi_roast_beans.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/deteksi_roast_beans.mp4" alt="">
+                    <img src="images/deteksi_roast_beans.mp4" alt="Coffee Roast Classification">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -1027,9 +1099,10 @@
                 </div>
             </div>
 
+            <!-- Gesture Detection -->
             <div class="card" onclick="openModal('images/isyarat.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/isyarat.mp4" alt="">
+                    <img src="images/isyarat.mp4" alt="Gesture Detection">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -1039,9 +1112,10 @@
                 </div>
             </div>
 
+            <!-- Peminjaman Alat Komputer -->
             <div class="card" onclick="openModal('images/Inventaris.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/Inventaris.mp4" alt="">
+                    <img src="images/Inventaris.mp4" alt="Peminjaman Alat Komputer">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
@@ -1051,16 +1125,29 @@
                 </div>
             </div>
 
-            <!-- NEW PROJECT: Rt_Rw.mp4 -->
+            <!-- RT/RW Management System -->
             <div class="card" onclick="openModal('images/Rt_Rw.mp4')">
                 <div class="thumbnail-container">
-                    <img src="images/Rt_Rw.mp4" alt="">
+                    <img src="images/Rt_Rw.mp4" alt="RT/RW Management System">
                     <div class="play-button"><i class="fas fa-play"></i></div>
                 </div>
                 <div class="cb">
                     <h3>RT/RW Management System</h3>
                     <p>Sistem manajemen data RT/RW berbasis web</p>
                     <span class="tag">Web App</span>
+                </div>
+            </div>
+
+            <!-- Deteksi Penyakit Daun Tomat -->
+            <div class="card" onclick="openModal('images/deteksi_penyakit_daun_tomat.mp4')">
+                <div class="thumbnail-container">
+                    <img src="images/deteksi_penyakit_daun_tomat.mp4" alt="Deteksi Penyakit Daun Tomat">
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="cb">
+                    <h3>Deteksi Penyakit Daun Tomat</h3>
+                    <p>Deteksi penyakit pada daun tomat menggunakan Deep Learning</p>
+                    <span class="tag green">TensorFlow</span>
                 </div>
             </div>
         </div>
@@ -1071,82 +1158,122 @@
         <h2 class="st">Sertifikat & Penghargaan</h2>
         <div class="section-divider"></div>
         <div class="grid">
-            <!-- Existing certificates -->
+            <!-- Bug Bounty - IDOR -->
             <div class="card" onclick="openModal('images/IDOR.jpg')">
-                <img src="images/IDOR.jpg" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/IDOR.jpg" alt="Bug Bounty IDOR">
+                </div>
                 <div class="cb">
                     <h3>Bug Bounty - IDOR</h3>
                     <span class="tag red">Cyber Security</span>
                 </div>
             </div>
+
+            <!-- Juara Sambo Jatim -->
             <div class="card" onclick="openModal('images/sambo.jpg')">
-                <img src="images/sambo.jpg" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/sambo.jpg" alt="Juara Sambo Jatim">
+                </div>
                 <div class="cb">
                     <h3>Juara Sambo Jatim</h3>
                     <p>Medali Emas 2024</p>
                     <span class="tag green">Olahraga</span>
                 </div>
             </div>
+
+            <!-- IBM Career Management -->
             <div class="card" onclick="openModal('images/career2.jpg')">
-                <img src="images/career2.jpg" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/career2.jpg" alt="IBM Career Management">
+                </div>
                 <div class="cb">
                     <h3>IBM Career Management</h3>
                     <span class="tag blue">Soft Skill</span>
                 </div>
             </div>
+
+            <!-- IBM Digital Mindset -->
             <div class="card" onclick="openModal('images/career.jpg')">
-                <img src="images/career.jpg" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/career.jpg" alt="IBM Digital Mindset">
+                </div>
                 <div class="cb">
                     <h3>IBM Digital Mindset</h3>
                     <span class="tag blue">Digital Skill</span>
                 </div>
             </div>
+
+            <!-- Penulis Terbaik Nasional 1 -->
             <div class="card" onclick="openModal('images/penulis.JPG')">
-                <img src="images/penulis.JPG" alt="">
-                <div class="cb">
-                    <h3>Penulis Terbaik Nasional</h3>
-                    <span class="tag yellow" style="background: var(--yellow);">Penulis</span>
+                <div class="thumbnail-container">
+                    <img src="images/penulis.JPG" alt="Penulis Terbaik Nasional">
                 </div>
-            </div>
-            <div class="card" onclick="openModal('images/penulis2.JPG')">
-                <img src="images/penulis2.JPG" alt="">
                 <div class="cb">
                     <h3>Penulis Terbaik Nasional</h3>
-                    <span class="tag yellow" style="background: var(--yellow);">Penulis</span>
+                    <span class="tag yellow">Penulis</span>
                 </div>
             </div>
 
-            <!-- NEW CERTIFICATES -->
+            <!-- Penulis Terbaik Nasional 2 -->
+            <div class="card" onclick="openModal('images/penulis2.JPG')">
+                <div class="thumbnail-container">
+                    <img src="images/penulis2.JPG" alt="Penulis Terbaik Nasional">
+                </div>
+                <div class="cb">
+                    <h3>Penulis Terbaik Nasional</h3>
+                    <span class="tag yellow">Penulis</span>
+                </div>
+            </div>
+
+            <!-- Sertifikat Kompetensi -->
             <div class="card" onclick="openModal('images/sertif_kompetensi.jpeg')">
-                <img src="images/sertif_kompetensi.jpeg" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/sertif_kompetensi.jpeg" alt="Sertifikat Kompetensi">
+                </div>
                 <div class="cb">
                     <h3>Sertifikat Kompetensi</h3>
                     <span class="tag purple">Kompetensi</span>
                 </div>
             </div>
+
+            <!-- Sertifikat Vibe Pentesting -->
             <div class="card" onclick="openModal('images/sertif_Vibe_pentesting.webp')">
-                <img src="images/sertif_Vibe_pentesting.webp" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/sertif_Vibe_pentesting.webp" alt="Sertifikat Vibe Pentesting">
+                </div>
                 <div class="cb">
                     <h3>Sertifikat Vibe Pentesting</h3>
                     <span class="tag red">Cyber Security</span>
                 </div>
             </div>
+
+            <!-- Dibimbing.id -->
             <div class="card" onclick="openModal('images/dibimbing.webp')">
-                <img src="images/dibimbing.webp" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/dibimbing.webp" alt="Dibimbing.id">
+                </div>
                 <div class="cb">
                     <h3>Dibimbing.id</h3>
                     <span class="tag blue">Bootcamp</span>
                 </div>
             </div>
+
+            <!-- Dicoding Academy -->
             <div class="card" onclick="openModal('images/dicoding.webp')">
-                <img src="images/dicoding.webp" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/dicoding.webp" alt="Dicoding Academy">
+                </div>
                 <div class="cb">
                     <h3>Dicoding Academy</h3>
                     <span class="tag green">Belajar</span>
                 </div>
             </div>
+
+            <!-- Pentesting Certificate -->
             <div class="card" onclick="openModal('images/pentesting.webp')">
-                <img src="images/pentesting.webp" alt="">
+                <div class="thumbnail-container">
+                    <img src="images/pentesting.webp" alt="Pentesting Certificate">
+                </div>
                 <div class="cb">
                     <h3>Pentesting Certificate</h3>
                     <span class="tag red">Cyber Security</span>
