@@ -1350,6 +1350,24 @@
                     <button class="detail-btn" onclick="event.stopPropagation(); openDetail(11)"><i class="fas fa-info-circle"></i> Detail</button>
                 </div>
             </div>
+
+
+            <!-- Deteksi Kesegaran Ikan -->
+            <div class="card" onclick="openModal('images/deteksi_kesegaran_ikan.mp4')">
+                <div class="thumbnail-container">
+                    <img src="images/deteksi_kesegaran_ikan.mp4" alt="Deteksi Kesegaran Ikan">
+                    <div class="video-badge"><i class="fas fa-play"></i> VIDEO</div>
+                    <div class="play-button"><i class="fas fa-play"></i></div>
+                </div>
+                <div class="cb">
+                    <h3>Deteksi Kesegaran Ikan</h3>
+                    <p>Deteksi Kesegaran ikan menggunakan CNN</p>
+                    <span class="tag green">TensorFlow</span>
+                    <button class="detail-btn" onclick="event.stopPropagation(); openDetail(12)"><i class="fas fa-info-circle"></i> Detail</button>
+                </div>
+            </div>
+
+
         </div>
     </section>
 
@@ -1884,6 +1902,22 @@
                     'Potensi integrasi ke aplikasi mobile petani'
                 ],
                 tech: 'Python, TensorFlow, Keras, OpenCV, Matplotlib'
+            },
+            {
+                title: 'Deteksi Kesegaran Ikan',
+                tags: [
+                    { text: 'TensorFlow', color: '#22c55e' },
+                    { text: 'CNN', color: '#6b46e5' },
+                    { text: 'Image Processing', color: '#3b82f6' }
+                ],
+                desc: 'Sistem klasifikasi kesegaran ikan menggunakan Convolutional Neural Network (CNN). Model mampu membedakan ikan segar dan tidak segar berdasarkan citra mata ikan, insang, dan tekstur tubuh secara otomatis.',
+                features: [
+                    'Klasifikasi biner: ikan segar vs tidak segar',
+                    'Deteksi berbasis citra mata, insang, dan tekstur tubuh',
+                    'Augmentasi data untuk akurasi lebih tinggi',
+                    'Potensi integrasi ke sistem sortir industri perikanan'
+                ],
+                tech: 'Python, TensorFlow, Keras, OpenCV, Google Colab'
             }
         ];
 
